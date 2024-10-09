@@ -53,7 +53,7 @@ class Rol {
     public function consultar_roles() {
         try {
             // Consulta que excluye el rol de 'admin'
-            $query = "SELECT name_rol, description FROM " . $this->table . " WHERE name_rol != 'admin'";
+            $query = "SELECT name_rol, description FROM " . $this->table;
             $statement = $this->conn->prepare($query);
             $statement->execute();
     

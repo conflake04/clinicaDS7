@@ -1,81 +1,93 @@
-/* Estilos generales */
-body {
+/* Estilos generales para el formulario */
+form.crearUsu {
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #2c2c2c; /* Fondo oscuro */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e1e; /* Fondo más oscuro */
-    color: #f4f4f9; /* Color de texto claro */
-    margin: 0;
-    padding: 20px;
+    color: #f4f4f9; /* Texto claro */
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* Estilos para las etiquetas */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #f4f4f9; /* Texto claro */
+    font-size: 16px;
+}
+
+/* Estilos para los campos de entrada de texto */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 90%;
+    padding: 12px;
+    margin: 0 auto;
+    border: 1px solid #555; /* Borde oscuro */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: #3d3d3d; /* Fondo gris oscuro */
+    color: #f4f4f9; /* Texto claro */
+    transition: border-color 0.3s ease;
+}
+
+/* Estilos para la lista desplegable */
+.form-group select {
+    background-color: #3d3d3d;
+}
+
+/* Estilos para el botón */
+form button {
+    width: 90%;
+    padding: 12px 0;
+    background-color: #007bff; /* Verde */
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Verde más oscuro */
+}
+
+/* Estilos para el enfoque de los campos */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group select:focus {
+    border-color: #007bff; /* Color de enfoque azul */
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Centrar el contenido */
+form {
     text-align: center;
 }
 
-/* Contenedor principal */
-.container {
-    max-width: 600px; /* Ancho máximo del contenedor */
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #2c2c2c; /* Fondo del contenedor */
-    border-radius: 15px; /* Bordes más redondeados */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+/* Estilos para el enlace de cerrar sesión */
+.container p a {
+    color: #f4f4f9;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Título */
-h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #ffffff; /* Título blanco */
-    text-align: left; /* Alinear título a la izquierda */
-}
-
-/* Grupo de formulario */
-.form-group {
-    margin-bottom: 20px; /* Espacio inferior */
-    text-align: left; /* Alinear etiquetas a la izquierda */
-}
-
-label {
-    display: block; /* Hacer que la etiqueta ocupe toda la línea */
-    margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
-    color: #ffffff; /* Color de la etiqueta */
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: 100%; /* Ancho completo */
-    padding: 10px; /* Espacio interno */
-    border: 1px solid #555; /* Borde */
-    border-radius: 5px; /* Bordes redondeados */
-    background-color: #3c3c3c; /* Fondo del input */
-    color: #f4f4f9; /* Color de texto */
-    font-size: 16px; /* Tamaño de fuente */
-}
-
-/* Estilos de botón */
-button {
-    padding: 12px 25px;
-    background-color: #28a745; /* Verde */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px; /* Aumentar tamaño de fuente */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
-    margin-top: 20px; /* Espacio superior */
-}
-
-button:hover {
-    background-color: #218838; /* Verde más oscuro */
-    transform: translateY(-2px); /* Levantar el botón al pasar el ratón */
-}
-
-/* Estilos para el enlace dentro del botón */
-p a {
-    color: #f4f4f9; /* Color de texto del enlace */
-    text-decoration: none; /* Sin subrayado */
-}
-
-p a:hover {
-    text-decoration: underline; /* Subrayar al pasar el ratón */
+.container p a:hover {
+    text-decoration: underline;
 }

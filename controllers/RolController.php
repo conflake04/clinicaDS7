@@ -37,8 +37,8 @@ class RolController {
     }
 
     public function consultar_roles() {
-     $this->rol->consultar_roles();
-        require_once 'views/consultaRoles.php'; // Llama a la vista para mostrar los roles
+     $roles = $this->rol->consultar_roles();
+        require_once 'views/consultaRoles.php';
     }
     
 

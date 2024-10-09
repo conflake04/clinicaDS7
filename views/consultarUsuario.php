@@ -1,6 +1,6 @@
 <?php require 'templates/header.php'; ?>
 
-
+<link rel="stylesheet" href="./css/consultarUsuario.css">
 <h1>Lista de Usuarios</h1>
 <table>
     <thead>
@@ -22,6 +22,7 @@
             echo "<td>{$row['idUsuario']}</td>";
             echo "<td>{$row['name']}</td>";
             echo "<td>{$row['username']}</td>";
+            echo "<td>{$row['password']}</td>";
             echo "<td>{$row['email']}</td>";
             echo "<td>{$row['direction']}</td>";
             echo "<td>{$row['idRol']}</td>"; // Asumiendo que idRol es un campo en tu tabla
