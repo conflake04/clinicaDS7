@@ -1,6 +1,7 @@
 <?php
 // Incluir el controlador de usuarios
 require_once 'controllers/UserController.php';
+require_once 'controllers/RolController.php';
 
 /**
  * Clase App para manejar las rutas de la aplicación.
@@ -13,6 +14,7 @@ class App {
 
         // Instanciar el controlador de usuarios
         $controller = new UserController();
+        $rolcontroller = new RolController();
 
         // Si no hay una URL, cargar la página de inicio de sesión por defecto
         if (empty($url[0])) {
@@ -25,7 +27,7 @@ class App {
             case 'login':
                 $controller->login(); // Cargar el método de inicio de sesión
                 break;
-            case 'register':
+            case 'crearUsuario':
                 $controller->register(); // Cargar el método de registro
                 break;
             case 'admin':
@@ -46,13 +48,28 @@ class App {
                 break;
 
             case 'createRoll':
-                // Si se accede a /users, se carga la vista de usuarios
+                // Si se accede a /rol, se carga la vista de roles
                     require_once 'views/createRoll.php';
                 break;
 
-            case 'crearUsuario':
-                // Si se accede a /users, se carga la vista de usuarios
-                    require_once 'views/CrearUsuario.php';
+            case 'crearRol':
+                //Acceder a la vista registrar rol
+                    require_once 'views/crearRol.php';
+                break;
+            
+            case 'registrarRol':
+                $rolcontroller->registrar_rol();
+                break;
+            case 'consultarRoles':
+                $rolcontroller->consultar_roles();
+                break;
+            case 'eliminarRol':
+                $rolcontroller->mostrar_roles_para_eliminar();
+
+                break;
+
+            case 'consultarUsuario':
+                $controller->consultarUsuarios();
                 break;
 
             default:

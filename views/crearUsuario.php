@@ -2,7 +2,7 @@
 
 <h2>Crear Usuario</h2>
 
-<form class="crearUsu" action="./register" method="POST">
+<form class="crearUsu" action="./crearUsuario" method="POST">
     <label for="name">Nombre Completo:</label>
     <input type="text" id="name" name="name" required maxlength="50"><br><br>
 
@@ -28,13 +28,12 @@
             include '../config/database.php';
             include '../models/Rol.php';
             
-
             $database = new Database();
             $db = $database->getConnection();
             
             $rol = new Rol($db);
             
-            $stmt = $rol->getAllRoles();
+            $stmt = $rol->consultar_roles_todos();
             
             if ($stmt->rowCount() > 0) {
                 
@@ -51,7 +50,9 @@
         ?>
     </select>
 
-    <input type="submit" value="Crear">
+    <button type="submit">Crear</button>
+
+    
 </form>
 
 <p><a href="./logout">Cerrar Sesión</a></p>

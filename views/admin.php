@@ -6,5 +6,5 @@
 <p><a href="./GestionUsuario">Gestion de Usuarios</a></p>
 <p><a href="./createRoll">Gestion de Roles</a></p>
 <p><a href="./logout">Cerrar Sesión</a></p>
-
 <?php require 'templates/footer.php'; ?>
+    

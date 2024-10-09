@@ -2,8 +2,9 @@
 
 <!-- Página del panel de administración -->
 <h2>Gestion de Roles</h2>
-<p>Has iniciado sesión exitosamente.</p>
-<p><a href="."></a></p>
-<p><a href="./logout">Cerrar Sesión</a></p>
+<button><a href="./crearRol">Crear Nuevo Rol</a></button>
+<button><a href="./consultarRoles">Consulta de Roles</a></button>
+<button><a href="./eliminarRol">Eliminar Rol</a></button>
+<button><a href="./logout">Cerrar Sesion</a></button>
 
 <?php require 'templates/footer.php'; ?>

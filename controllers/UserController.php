@@ -38,13 +38,13 @@ class UserController {
 
             // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
             if ($this->user->register()) {
-                header('Location: ./register');
+                header('Location: ./crearUsuario');
             } else {
                 echo "Error en el registro.";
             }
         }else {
             // Cargar la vista del formulario de registro si la solicitud no es POST
-            require_once 'views/register.php';
+            require_once 'views/crearUsuario.php';
         }
     }
 
@@ -68,6 +68,15 @@ class UserController {
         }else {
             // Cargar la vista del formulario de registro si la solicitud no es POST
             require_once 'views/login.php';
+        }
+    }
+
+    public function consultarUsuarios(){
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $users = $this->user->consultarUsuarios();
+            require_once 'views/consultarUsuario.php';
+        } else {
+            'views/GestionUsuarios.php'; // Si no hay acción, cargar la vista principal
         }
     }
 

@@ -4,3 +4,5 @@ require_once 'core/App.php';
 
 // Instanciar la aplicación para comenzar a manejar las rutas
 $app = new App();
+
+?>

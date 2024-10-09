@@ -9,6 +9,6 @@
 </head>
 <body>
 <header>
-    <h1>Sistema de Gestión de Usuarios</h1>
+    <h1>Sistema de Gestión de Clinica</h1>
 </header>
 <div class="container">
