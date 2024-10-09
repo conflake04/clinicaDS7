@@ -55,7 +55,7 @@ class UserController {
 
             // Intentar iniciar sesión y redirigir al panel de administración si tiene éxito
             if ($this->user->login()) {
-                $_SESSION['user_id'] = $this->user->id; // Guardar el ID del usuario en la sesión
+                $_SESSION['user_id'] = $this->user->idUsuario; // Guardar el ID del usuario en la sesión
                 header('Location: ./admin');
             } else {
                 echo "Credenciales incorrectas.";

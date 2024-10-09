@@ -57,7 +57,7 @@ class User {
 
         // Verificar si la contraseña proporcionada coincide con la almacenada
         if ($user && password_verify($this->password, $user['password'])) {
-            $this->id = $user['id']; // Guardar el ID del usuario
+            $this->idUsuario     = $user['id']; // Guardar el ID del usuario
             return true;
         }
         return false;
