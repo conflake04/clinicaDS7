@@ -28,12 +28,17 @@ class UserController {
         // Verificar si la solicitud es POST (formulario enviado)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto User
+            $this->user->name = $_POST['name'];
             $this->user->username = $_POST['username'];
             $this->user->password = $_POST['password'];
+            $this->user->email = $_POST['email'];
+            $this->user->direction = $_POST['direction'];
+            $this->user->idRol = $_POST['idRol'];
+
 
             // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
             if ($this->user->register()) {
-                header('Location: ./login');
+                header('Location: ./register');
             } else {
                 echo "Error en el registro.";
             }
@@ -55,7 +60,7 @@ class UserController {
 
             // Intentar iniciar sesión y redirigir al panel de administración si tiene éxito
             if ($this->user->login()) {
-                $_SESSION['user_id'] = $this->user->id; // Guardar el ID del usuario en la sesión
+                $_SESSION['user_id'] = $this->user->idUsuario; // Guardar el ID del usuario en la sesión
                 header('Location: ./admin');
             } else {
                 echo "Credenciales incorrectas.";

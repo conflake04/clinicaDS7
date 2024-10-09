@@ -40,15 +40,21 @@ class App {
                 $controller->logout(); // Cerrar sesión
                 break;
 
-            case 'createUser':
+            case 'GestionUsuario':
                 // Si se accede a /users, se carga la vista de usuarios
-                    require_once 'views/createUser.php';
+                    require_once 'views/GestionUsuario.php';
                 break;
 
             case 'createRoll':
                 // Si se accede a /users, se carga la vista de usuarios
                     require_once 'views/createRoll.php';
                 break;
+
+            case 'crearUsuario':
+                // Si se accede a /users, se carga la vista de usuarios
+                    require_once 'views/CrearUsuario.php';
+                break;
+
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
                 break;

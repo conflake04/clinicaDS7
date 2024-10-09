@@ -18,9 +18,11 @@ class Database {
             // Crear una nueva conexión PDO
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->exec("set names utf8"); // Establecer el juego de caracteres a UTF-8
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $exception) {
             echo "Error en la conexión: " . $exception->getMessage();
         }
         return $this->conn;
     }
 }
+?>
