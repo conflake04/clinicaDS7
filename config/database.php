@@ -3,10 +3,10 @@
  * Clase Database para manejar la conexión a la base de datos.
  */
 class Database {
-    private $host = 'localhost';       // Dirección del servidor
+    private $host = '127.0.0.1';       // Dirección del servidor
     private $db_name = 'clinica'; // Nombre de la base de datos
-    private $username = 'root';        // Usuario de la base de datos
-    private $password = '';            // Contraseña de la base de datos
+    private $username = 'myuser';        // Usuario de la base de datos
+    private $password = 'mypassword';            // Contraseña de la base de datos
     public $conn;
 
     /**

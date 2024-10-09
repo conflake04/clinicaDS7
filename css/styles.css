@@ -1,15 +1,16 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .container {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+
 }
 
 header {
@@ -23,29 +24,107 @@ header h1 {
     margin: 0;
 }
 
-form {
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background: #3382B5;
+    border-radius: 10px;
+    margin-top: 200px;
+}
+
+.login-container__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    flex: 1;
+}
+
+.login-container__form h1 {
+    color: #fff;
+    text-align: center;
+}
+
+.login-container__form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container__form form div {
+    width: 100%;
+}
+
+.form-login {
+    padding: 20px;
+    row-gap: 20px;
+}
+
+.form-login button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 15px 10px;
+    border-radius: 7px;
+    border: 1px solid #bbb;
+    transition: all ease 0.3s;
+    font-weight: 800;
+}
+
+.form-login button:hover {
+    background-color: #ddd;
+}
+
+.form-login-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login-field label {
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.form-login-field input {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    border: 1px solid #bbb;
+    padding: 10px;
+}
+
+.login-container__logo {
+    background-color: red;
+    flex: 1;
+}
+
+/* form {
     background-color: #fff;
     padding: 20px;
     margin: 20px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+} */
 
-form label {
+
+
+
+/* form label {
     display: block;
     margin: 10px 0 5px;
-}
+} */
 
-form input[type="text"],
+/* form input[type="text"],
 form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 5px 0 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-}
+} */
 
-form button {
+/* form button {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
@@ -56,7 +135,7 @@ form button {
 
 form button:hover {
     background-color: #555;
-}
+} */
 
 footer {
     text-align: center;
@@ -66,4 +145,30 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.admin-container button a {
+    text-decoration: none;
+    color: black;
+}
+
+.admin-container button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 15px 10px;
+    border-radius: 7px;
+    border: 1px solid #bbb;
+    transition: all ease 0.3s;
+    font-weight: 800;
+}
+
+.admin-container button:hover {
+    background-color: #ddd;
 }
