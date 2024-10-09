@@ -1,5 +1,7 @@
 <?php require 'templates/header.php'; ?>
 
+<link rel="stylesheet" href="./css/consultaRoles.css">
+
 <body>
     <h1>Eliminar Rol</h1>
 

@@ -1,5 +1,5 @@
 <?php require 'templates/header.php'; ?>
-<link rel="stylesheet" href="CSS/createRoll.css" />
+<link rel="stylesheet" href="../css/createRoll.css" />
 <!-- Página del panel de administración -->
 <div class="admin-container">
 
