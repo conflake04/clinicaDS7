@@ -71,6 +71,7 @@ class App {
             case 'consultarUsuario':
                 $controller->consultarUsuarios();
                 break;
+            
 
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
