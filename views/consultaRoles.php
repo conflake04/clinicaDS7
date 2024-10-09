@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="./css/consultaRoles.css">
 <body>
     <div class="container">
-        <h1>Lista de Roles</h1>
 
         <div class="table-container">
             <table>
@@ -28,10 +27,6 @@
                     <?php endif; ?>
                 </tbody>
             </table>
-        </div>
-
-        <div class="button-container">
-            <button><a href="./createRoll">Volver al inicio</a></button>
         </div>
     </div>
 </body>

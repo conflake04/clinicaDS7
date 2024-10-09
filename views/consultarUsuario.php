@@ -1,7 +1,6 @@
 <?php require 'templates/header.php'; ?>
 
-<link rel="stylesheet" href="./css/consultarUsuario.css">
-<h1>Lista de Usuarios</h1>
+<link rel="stylesheet" href="./css/consultarUsuario.css">   
 <table>
     <thead>
         <tr>
@@ -31,7 +30,6 @@
         ?>
     </tbody>
 </table>
-<button><a href="./createRoll">Volver al inicio</a></button>
 
 
 <?php require 'templates/footer.php'; ?>

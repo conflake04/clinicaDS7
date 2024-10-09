@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="./css/crearUsuario.css">
 
 <div class="container">
-    <h2>Crear Usuario</h2>
 
     <form class="crearUsu" action="./crearUsuario" method="POST">
         <div class="form-group">

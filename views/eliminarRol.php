@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="./css/consultaRoles.css">
 
 <body>
-    <h1>Eliminar Rol</h1>
 
     <!-- Tabla para mostrar los roles -->
     <table border="1">
