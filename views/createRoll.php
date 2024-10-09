@@ -1,5 +1,5 @@
 <?php require 'templates/header.php'; ?>
-
+<link rel="stylesheet" href="CSS/createRoll.css" />
 <!-- Página del panel de administración -->
 <h2>Gestion de Roles</h2>
 <button><a href="./crearRol">Crear Nuevo Rol</a></button>

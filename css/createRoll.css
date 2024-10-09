@@ -1,0 +1,115 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f9ff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    color: #005b96; /* Azul salud */
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+button {
+    background-color: #007bb5; /* Azul claro */
+    border: none;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+button:hover {
+    background-color: #005b96; /* Azul oscuro */
+}
+
+/* Contenedor de botones usando flexbox */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Asegura que los botones ocupen toda la anchura en pantallas pequeñas */
+button {
+    width: 200px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el botón de cerrar sesión */
+button:last-child {
+    background-color: #d9534f;
+}
+
+button:last-child:hover {
+    background-color: #c9302c;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bb5;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        width: 100%; /* Los botones ocuparán toda la anchura disponible */
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2em;
+    }
+
+    button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
