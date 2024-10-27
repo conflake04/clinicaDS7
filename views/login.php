@@ -17,7 +17,8 @@
         <button type="submit">Ingresar</button>
         </form> 
     </div>
- </div>
+ 
+ </div> 
+ <?php require 'templates/footer.php'; ?>
 
 
-<?php require 'templates/footer.php'; ?>
