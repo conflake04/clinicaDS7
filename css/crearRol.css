@@ -4,10 +4,10 @@ form {
     max-width: 500px;
     margin: 40px auto;
     padding: 30px;
-    background-color: #ffffff;
+    background-color: #4A628A;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
+
 }
 
 /* Estilos para los grupos de formulario */
@@ -21,8 +21,8 @@ form {
     display: block;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #555;
-    font-size: 16px;
+    color: #ffff;
+    font-size: 20px;
 }
 
 /* Estilos para los campos de entrada de texto */
@@ -31,10 +31,10 @@ form {
     width: 90%;
     padding: 12px;
     margin: 0 auto;
-    border: 1px solid #ddd;
+    border: 3px solid #4F75FF;
     border-radius: 6px;
     box-sizing: border-box;
-    font-size: 15px;
+    font-size: 18px;
     background-color: #f7f7f7;
     transition: border-color 0.3s ease;
 }
@@ -49,9 +49,9 @@ form {
 .form-group button {
     width: 90%;
     padding: 12px 0;
-    background-color: #007bff;
+    background-color: #4F75FF;
     color: white;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
     border: none;
     border-radius: 6px;
@@ -69,6 +69,7 @@ form {
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    
 }
 
 /* Centrando el formulario */

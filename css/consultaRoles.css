@@ -1,40 +1,40 @@
-/* Estilos generales */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e1e; /* Fondo más oscuro */
-    color: #f4f4f9; /* Color de texto claro */
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-}
 
-/* Contenedor principal */
+
 .container {
-    max-width: 800px;
+    width: 90%;
     margin: 0 auto;
     padding: 30px;
-    background-color: #2c2c2c; /* Fondo del contenedor */
-    border-radius: 15px; /* Bordes más redondeados */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    background-color: #fff; 
+    border-radius: 15px;
+    margin: 20px auto 0;
+   
 }
 
-/* Título */
 h1 {
     font-size: 30px;
     margin-bottom: 20px;
-    color: #ffffff; /* Título blanco */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra en el texto */
+    color: #ffffff; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
 }
 
-/* Contenedor de la tabla */
-.table-container {
+
+.container {
     overflow-x: auto;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
-
-/* Tabla */
+.txtC {
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    flex-direction: column;
+}
 table {
-    width: 100%;
+   
+    width: 95%;
     border-collapse: collapse;
     margin-bottom: 20px;
     border-radius: 10px; /* Bordes redondeados para la tabla */
@@ -42,27 +42,29 @@ table {
 }
 
 thead th {
-    background-color: #007bff; /* Color azul */
+    background-color: #7AB2D3; /* Color azul */
     color: #fff;
     padding: 15px; /* Más espacio para un mejor aspecto */
-    font-size: 18px; /* Aumentar tamaño de fuente */
+    font-size: 20px; /* Aumentar tamaño de fuente */
     border-bottom: 2px solid #0056b3; /* Línea inferior */
 }
 
 tbody td {
     padding: 15px; /* Aumentar espacio */
     border-bottom: 1px solid #555; /* Línea de separación */
-    font-size: 15px; /* Aumentar tamaño de fuente */
+    font-size: 20px; /* Aumentar tamaño de fuente */
     color: #f4f4f9; /* Color de texto claro */
     transition: background-color 0.3s ease; /* Transición suave */
+    text-align: center;
+    vertical-align: middle;
+}
+tbody{
+    background-color: #4A628A;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #3d3d3d; /* Color de fondo alterno */
-}
 
 tbody tr:hover {
-    background-color: #444; /* Color al pasar el ratón */
+    background-color: #3a5688;/* Color al pasar el ratón */
 }
 
 tbody td[colspan="2"] {
