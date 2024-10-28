@@ -1,123 +1,112 @@
-/* Estilos generales */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e1e;
-    /* Fondo más oscuro */
-    color: #f4f4f9;
-    /* Color de texto claro */
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-}
-
-
-
 /* Título */
 h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #ffffff;
-    /* Título blanco */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    /* Sombra en el texto */
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  /* Título blanco */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* Sombra en el texto */
 }
-
-/* Contenedor de la tabla */
+.txtC {
+  font-size: 35px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 20px;
+ 
+}
 .table-container {
-    overflow-x: auto;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
+  width: 90%;
+  background-color: #fff;
+  margin: 20px auto 0;
+  border-radius: 20px;
 }
 
 /* Tabla */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    /* Bordes redondeados para la tabla */
-    overflow: hidden;
-    /* Para que los bordes redondeados se vean */
+  margin: 20px auto 0;
+  width: 95%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 thead th {
-    background-color: #007bff;
-    /* Color azul */
-    color: #fff;
-    padding: 15px;
-    /* Más espacio para un mejor aspecto */
-    font-size: 18px;
-    /* Aumentar tamaño de fuente */
-    border-bottom: 2px solid #0056b3;
-    /* Línea inferior */
-}
+  background-color: #7ab2d3;
 
+  color: #fff;
+  padding: 15px;
+  /* Más espacio para un mejor aspecto */
+  font-size: 20px;
+  /* Aumentar tamaño de fuente */
+  border-bottom: 2px solid #fff;
+  /* Línea inferior */
+}
+tbody {
+  background-color: #4a628a;
+}
 tbody td {
-    padding: 15px;
-    /* Aumentar espacio */
-    border-bottom: 1px solid #555;
-    /* Línea de separación */
-    font-size: 15px;
-    /* Aumentar tamaño de fuente */
-    color: #f4f4f9;
-    /* Color de texto claro */
-    transition: background-color 0.3s ease;
-    /* Transición suave */
+  padding: 15px;
+  border-bottom: 1px solid #555;
+  font-size: 20px;
+  color: #f4f4f9;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  vertical-align: middle;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #3d3d3d;
-    /* Color de fondo alterno */
+  background-color: #3d3d3d;
 }
 
 tbody tr:hover {
-    background-color: #444;
-    /* Color al pasar el ratón */
+  background-color: #3a5688;
+  /* Color al pasar el ratón */
 }
 
 tbody td[colspan="2"] {
-    text-align: center;
-    font-style: italic;
+  text-align: center;
+  font-style: italic;
 }
 
 /* Botón */
 .button-container {
-    text-align: center;
-    margin-top: 20px;
-    /* Espacio superior */
+  text-align: center;
+  margin-top: 20px;
+  /* Espacio superior */
 }
 
 button {
-    padding: 12px 25px;
-    background-color: #28a745;
-    /* Verde */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    /* Aumentar tamaño de fuente */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    /* Transición suave */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Sombra del botón */
+  padding: 12px 25px;
+  background-color: #28a745;
+  /* Verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  /* Aumentar tamaño de fuente */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* Transición suave */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra del botón */
 }
 
 button:hover {
-    background-color: #218838;
-    /* Verde más oscuro */
-    transform: translateY(-2px);
-    /* Levantar el botón al pasar el ratón */
+  background-color: #218838;
+  /* Verde más oscuro */
+  transform: translateY(-2px);
+  /* Levantar el botón al pasar el ratón */
 }
 
 /* Estilos para el enlace dentro del botón */
 button a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 button a:hover {
-    text-decoration: underline;
-    /* Subrayar al pasar el ratón */
+  text-decoration: underline;
+  /* Subrayar al pasar el ratón */
 }
