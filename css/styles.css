@@ -1,140 +1,176 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jockey+One&family=Khand:wght@300;400;500;600;700&display=swap");
 
 .container {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    background-color: #5C73F2;
-    height: 100%;
-
+  font-family: "Khand", sans-serif;
+  background-color: #5c73f2;
+  height: 100%;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
 }
 
 header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    background: #3382B5;
-    border-radius: 10px;
-    margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 570px;
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 160px;
 }
 
 .login-container__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  flex: 1;
 }
 
 .login-container__form h1 {
-    color: #fff;
-    text-align: center;
+  color: #000;
+  text-align: center;
+  font-size: 45px;
 }
 
 .login-container__form form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-container__form form div {
-    width: 100%;
+  width: 100%;
 }
 
 .form-login {
-    padding: 20px;
-    row-gap: 20px;
+  padding: 5px;
+  row-gap: 35px;
 }
 
 .form-login button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 15px 10px;
-    border-radius: 7px;
-    border: 1px solid #bbb;
-    transition: all ease 0.3s;
-    font-weight: 800;
+  cursor: pointer;
+  padding: 15px 10px;
+  border-radius: 20px;
+  border: 1px solid #bbb;
+  background-color: #7ab2d3;
+  transition: all ease 0.3s;
+  font-weight: 800;
+  color: #fff;
+  font-size: 24px;
 }
 
 .form-login button:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .form-login-field {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .form-login-field label {
-    font-weight: 700;
-    padding-bottom: 5px;
+  font-weight: 700;
+  padding-bottom: 5px;
+  justify-content: center;
 }
 
 .form-login-field input {
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    border: 1px solid #bbb;
-    padding: 10px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  border: 3px solid #4f75ff;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .login-container__logo {
-    background-color: red;
-    flex: 1;
+  background-color: red;
+  flex: 1;
 }
-
-
+.txtU {
+  font-size: 26px;
+  text-align: center;
+  padding: 10px;
+  font-style: normal;
+}
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 .admin-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  row-gap: 10px;
+  border-radius: 10px;
+  margin-top: 160px;
+  width: 580px;
+  align-items: center;
+}
+.admin-container h1,h2 {
+  text-align: center;
+  font-size: 40px;
 }
 
 .admin-container button a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  font-style: normal;
+}
+.admin-container button:last-child {
+  margin-top: 20px;
+}
+.btnG {
+  background-color: #4f75ff;
+}
+.btnC {
+  background-color: #e78f81;
 }
 
 .admin-container button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 15px 10px;
-    border-radius: 7px;
-    border: 1px solid #bbb;
-    transition: all ease 0.3s;
-    font-weight: 800;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 15px 10px;
+  padding-top: 20px;
+  border-radius: 7px;
+  border: 1px solid #bbb;
+  transition: all ease 0.3s;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  width: 70%;
 }
 
-.admin-container button:hover {
-    background-color: #ddd;
+.admin-container button:nth-child(-n + 4):hover {
+  background-color: #325ae9;
 }
+
+.admin-container button:last-child:hover {
+  background-color: #e26d5b;
+}
+
 

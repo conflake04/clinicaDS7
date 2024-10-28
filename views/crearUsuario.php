@@ -1,7 +1,7 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/crearUsuario.css">
-
+<spam class="txtG">Crear usuario</spam>
 <div class="container">
 
     <form class="crearUsu" action="./crearUsuario" method="POST">
@@ -38,28 +38,28 @@
         <div class="form-group">
             <label for="idRol">Rol:</label>
             <select id="idRol" name="idRol" required>
-                <option value="">Seleccione un rol</option>
+            <option class="txtP" value="">Seleccione un rol</option>
                 <?php
-                    include '../config/database.php';
-                    include '../models/Rol.php';
-                    
-                    $database = new Database();
-                    $db = $database->getConnection();
-                    
-                    $rol = new Rol($db);
-                    
-                    $stmt = $rol->consultar_roles_todos();
-                    
-                    if ($stmt->rowCount() > 0) {
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            $idRol = $row['idRol'];
-                            $name_rol = $row['name_rol'];
+                include '../config/database.php';
+                include '../models/Rol.php';
 
-                            echo "<option value='{$idRol}'>{$name_rol}</option>";
-                        }
-                    } else {
-                        echo "<option value=''>No hay roles disponibles</option>";
+                $database = new Database();
+                $db = $database->getConnection();
+
+                $rol = new Rol($db);
+
+                $stmt = $rol->consultar_roles_todos();
+
+                if ($stmt->rowCount() > 0) {
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $idRol = $row['idRol'];
+                        $name_rol = $row['name_rol'];
+
+                        echo "<option value='{$idRol}'>{$name_rol}</option>";
                     }
+                } else {
+                    echo "<option value=''>No hay roles disponibles</option>";
+                }
                 ?>
             </select>
         </div>
@@ -67,7 +67,7 @@
         <button type="submit">Crear</button>
     </form>
 
-    <p><a href="./logout">Cerrar Sesión</a></p>
+
 </div>
 
 <?php require 'templates/footer.php'; ?>
