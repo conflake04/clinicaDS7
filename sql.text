@@ -8,12 +8,15 @@ CREATE TABLE rol (
 
 CREATE TABLE usuario(
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
     username VARCHAR(20) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    numberPhone VARCHAR(15) NOT NULL,
-    direction VARCHAR(60) NOT NULL,
     idRol INT NOT NULL,
     FOREIGN KEY (idRol) REFERENCES rol(idRol) ON DELETE CASCADE
+);
+
+CREATE TABLE especialidad (
+    id_especialidad INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_especialidad VARCHAR(255) NOT NULL,
+    descripcion TEXT NOT NULL
 );
