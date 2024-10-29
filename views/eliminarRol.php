@@ -1,6 +1,7 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/consultaRoles.css">
+<span class="txtC"> Eliminar Rol</span>
 
 <body>
 
@@ -30,9 +31,11 @@
 
     <!-- Formulario para eliminar un rol -->
     <form method="POST" action="">
-        <label for="nombre_rol">Escribe el nombre del rol a eliminar:</label>
-        <input type="text" name="nombre_rol" id="nombre_rol" required>
+        <label class="txtR" for="nombre_rol">Escribe el nombre del rol a eliminar:</label>
+
+        <input class="inputB" type="text" name="nombre_rol" id="nombre_rol" required>
         <button type="submit">Eliminar Rol</button>
+
     </form>
 </body>
 

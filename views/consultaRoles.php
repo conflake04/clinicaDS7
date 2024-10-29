@@ -2,9 +2,9 @@
 
 <link rel="stylesheet" href="./css/consultaRoles.css">
  
-
+<span class="txtC"> Consulta Roles</span>
 <div class="container">
-   <span class="txtC"> Consulta Roles</span>
+   
     <table>
         <thead>
             <tr>

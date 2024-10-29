@@ -1,6 +1,13 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/consultarUsuario.css">
+<a class="container-imaA" href="GestionUsuario">
+    <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
+</a>
+
+<a class="container-imaH" href="GestionUsuario">
+    <img class="imaH" src="css/imagenes/hogar.png" alt="Atras">
+</a>
 <div class="table-container">
     <span class="txtC"> Consulta Usuario</span>
     <table>

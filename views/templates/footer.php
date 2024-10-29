@@ -1,6 +1,6 @@
 </div> <!-- Fin del container -->
 <footer>
-    <p>&copy; 2024 Sistema de Usuarios</p>
+    <span>&copy; 2024 Sistema de Usuarios</span>
 </footer>
 <script>
         // JavaScript para mostrar el mensaje de éxito si "success=1" está en la URL
