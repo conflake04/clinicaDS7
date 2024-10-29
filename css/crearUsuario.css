@@ -1,28 +1,38 @@
 /* Estilos generales para el formulario */
 @import url("https://fonts.googleapis.com/css2?family=Jockey+One&family=Khand:wght@300;400;500;600;700&display=swap");
+
 .container {
   background-color: #fff;
-  width: 750px;
+  max-width: 750px;
+  width: 90%; 
   margin: 12px auto 0;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
+  
 }
+
+
 .txtG {
-  font-size: 29px;
+  font-size: 32px;
   text-align: center;
-  margin: 20px;
+  position: relative;
+  top: -80px;
 }
+
 form.crearUsu {
-  width: 100%;
-  max-width: 500px;
-  margin: 40px auto;
+  width: 100%; 
+  max-width: 500px; 
+  margin: 20px auto;
   padding: 30px;
-  background-color: #4a628a; /* Fondo oscuro */
+  background-color: #4a628a;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #f4f4f9; /* Texto claro */
+  color: #f4f4f9;
+  box-sizing: border-box; 
+  position: relative;
+  top: -90px;
 }
 
 /* Estilos para los grupos de formulario */
@@ -36,7 +46,7 @@ form.crearUsu {
   display: block;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #f4f4f9; /* Texto claro */
+  color: #f4f4f9; 
   font-size: 16px;
 }
 
@@ -45,15 +55,15 @@ form.crearUsu {
 .form-group input[type="email"],
 .form-group input[type="password"] {
   font-family: "Khand", sans-serif;
-  width: 90%;
+  width: 100%; 
   padding: 5px;
   margin: 0 auto;
-  border: 3px solid #4f75ff; /* Borde oscuro */
+  border: 3px solid #4f75ff; 
   border-radius: 6px;
   box-sizing: border-box;
   font-size: 15px;
-  background-color: #fff; /* Fondo gris oscuro */
-  color: #000; /* Texto claro */
+  background-color: #fff; 
+  color: #000; 
   transition: border-color 0.3s ease;
 }
 
@@ -62,7 +72,7 @@ form.crearUsu {
   background-color: #7ab2d3;
   color: #fff;
   font-family: "Khand", sans-serif;
-  width: 90%;
+  width: 100%; 
   padding: 5px;
   margin: 0 auto;
   border-radius: 6px;
@@ -70,13 +80,14 @@ form.crearUsu {
   font-size: 15px;
   transition: border-color 0.3s ease;
 }
+
 .form-group select:hover {
   background-color: #5ca7d3;
 }
 
 /* Estilos para el botón */
 form button {
-  width: 90%;
+  width: 100%; 
   padding: 12px 0;
   background-color: #4f75ff;
   color: white;
@@ -96,7 +107,7 @@ form button:hover {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group input[type="password"]:focus {
-  border-color: #007bff; /* Color de enfoque azul */
+  border-color: #007bff; 
   outline: none;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
 }
@@ -115,4 +126,52 @@ form {
 
 .container p a:hover {
   text-decoration: underline;
+}
+.container-imaA{
+  position: relative;
+  top: -63px;
+  right: 820px;
+ 
+}
+.imaA{
+  width: 42px;
+}
+.container-imaH{
+  position: relative;
+  top: -109px;
+  left: 820px;
+}
+.imaH{
+  width: 42px;
+}
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .txtG {
+    font-size: 24px; 
+    margin: 15px;
+  }
+
+  form.crearUsu {
+    padding: 20px; /
+  }
+
+  .form-group label {
+    font-size: 14px; 
+  }
+
+  form button {
+    font-size: 15px; 
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 10px; 
+  }
+
+  form.crearUsu {
+    padding: 20px; 
+    margin: 20px auto; 
+  }
 }

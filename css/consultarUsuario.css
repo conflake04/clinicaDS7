@@ -3,9 +3,7 @@ h1 {
   font-size: 30px;
   margin-bottom: 20px;
   color: #ffffff;
-  /* Título blanco */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  /* Sombra en el texto */
 }
 .txtC {
   font-size: 35px;
@@ -35,21 +33,17 @@ table {
 
 thead th {
   background-color: #7ab2d3;
-
   color: #fff;
   padding: 15px;
-  /* Más espacio para un mejor aspecto */
   font-size: 20px;
-  /* Aumentar tamaño de fuente */
   border-bottom: 2px solid #fff;
-  /* Línea inferior */
 }
 tbody {
   background-color: #4a628a;
 }
 tbody td {
   padding: 15px;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #000;
   font-size: 20px;
   color: #f4f4f9;
   transition: background-color 0.3s ease;
@@ -60,7 +54,7 @@ tbody td {
 
 tbody tr:hover {
   background-color: #3a5688;
-  /* Color al pasar el ratón */
+ 
 }
 
 tbody td[colspan="2"] {
@@ -72,30 +66,24 @@ tbody td[colspan="2"] {
 .button-container {
   text-align: center;
   margin-top: 20px;
-  /* Espacio superior */
+ 
 }
 
 button {
   padding: 12px 25px;
   background-color: #28a745;
-  /* Verde */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
-  /* Aumentar tamaño de fuente */
   transition: background-color 0.3s ease, transform 0.3s ease;
-  /* Transición suave */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  /* Sombra del botón */
 }
 
 button:hover {
   background-color: #218838;
-  /* Verde más oscuro */
   transform: translateY(-2px);
-  /* Levantar el botón al pasar el ratón */
 }
 
 /* Estilos para el enlace dentro del botón */
@@ -106,5 +94,18 @@ button a {
 
 button a:hover {
   text-decoration: underline;
-  /* Subrayar al pasar el ratón */
+}
+.container-imaA{
+  position: relative;
+ 
+}
+.imaA{
+  width: 42px;
+}
+.container-imaH{
+  position: relative;
+  
+}
+.imaH{
+  width: 42px;
 }

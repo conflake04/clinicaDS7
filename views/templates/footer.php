@@ -1,6 +1,6 @@
 </div> <!-- Fin del container -->
 <footer>
-    <p>&copy; 2024 Sistema de Usuarios</p>
+    <span>&copy; 2024 Sistema de Usuarios</span>
 </footer>
 </body>
 </html>

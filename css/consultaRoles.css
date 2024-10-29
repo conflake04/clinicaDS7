@@ -1,106 +1,112 @@
-
-
 .container {
-    width: 90%;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #fff; 
-    border-radius: 15px;
-    margin: 20px auto 0;
-   
+  width: 90%;
+
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 20px auto 0;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #ffffff; 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-
-.container {
-    overflow-x: auto;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
 .txtC {
-    font-size: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    flex-direction: column;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  position: relative;
+  top: -10px;
 }
 table {
-   
-    width: 95%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    border-radius: 10px; /* Bordes redondeados para la tabla */
-    overflow: hidden; /* Para que los bordes redondeados se vean */
+  width: 95%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 thead th {
-    background-color: #7AB2D3; /* Color azul */
-    color: #fff;
-    padding: 15px; /* Más espacio para un mejor aspecto */
-    font-size: 20px; /* Aumentar tamaño de fuente */
-    border-bottom: 2px solid #0056b3; /* Línea inferior */
+  background-color: #7ab2d3;
+  color: #fff;
+  padding: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #fff;
 }
 
 tbody td {
-    padding: 15px; /* Aumentar espacio */
-    border-bottom: 1px solid #555; /* Línea de separación */
-    font-size: 20px; /* Aumentar tamaño de fuente */
-    color: #f4f4f9; /* Color de texto claro */
-    transition: background-color 0.3s ease; /* Transición suave */
-    text-align: center;
-    vertical-align: middle;
+  padding: 15px;
+  border-bottom: 1px solid #000;
+  color: #f4f4f9;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  vertical-align: middle;
 }
-tbody{
-    background-color: #4A628A;
+tbody {
+  background-color: #4a628a;
 }
-
 
 tbody tr:hover {
-    background-color: #3a5688;/* Color al pasar el ratón */
+  background-color: #3a5688;
 }
 
 tbody td[colspan="2"] {
-    text-align: center;
-    font-style: italic;
+  text-align: center;
+  font-style: italic;
 }
 
+.txtR {
+  font-size: 20px;
+ 
+}
+
+.inputB {
+  width: 50%; 
+  font-size: 20px;
+}
+form{
+  margin: 0 auto;
+}
 /* Botón */
 .button-container {
-    text-align: center;
-    margin-top: 20px; /* Espacio superior */
+  text-align: center;
+  margin-top: 20px;
 }
 
 button {
-    padding: 12px 25px;
-    background-color: #28a745; /* Verde */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px; /* Aumentar tamaño de fuente */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+  padding: 12px 25px;
+  background-color: #e78f81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  left: 560px;
+  top: -35px;
 }
 
 button:hover {
-    background-color: #218838; /* Verde más oscuro */
-    transform: translateY(-2px); /* Levantar el botón al pasar el ratón */
+  background-color: #d9534f;
+  transform: translateY(-2px);
 }
 
 /* Estilos para el enlace dentro del botón */
 button a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 button a:hover {
-    text-decoration: underline; /* Subrayar al pasar el ratón */
+  text-decoration: underline;
 }

@@ -1,9 +1,18 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/crearUsuario.css">
-<spam class="txtG">Crear usuario</spam>
-<div class="container">
 
+<a class="container-imaA" href="GestionUsuario">
+    <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
+</a>
+
+<a class="container-imaH" href="admin">
+    <img class="imaH" src="css/imagenes/hogar.png" alt="Atras">
+</a>
+
+
+<div class="container">
+    <spam class="txtG">Crear usuario</spam>
     <form class="crearUsu" action="./crearUsuario" method="POST">
         <div class="form-group">
             <label for="name">Nombre Completo:</label>
@@ -38,7 +47,7 @@
         <div class="form-group">
             <label for="idRol">Rol:</label>
             <select id="idRol" name="idRol" required>
-            <option class="txtP" value="">Seleccione un rol</option>
+                <option class="txtP" value="">Seleccione un rol</option>
                 <?php
                 include '../config/database.php';
                 include '../models/Rol.php';
@@ -66,8 +75,6 @@
 
         <button type="submit">Crear</button>
     </form>
-
-
 </div>
 
 <?php require 'templates/footer.php'; ?>
