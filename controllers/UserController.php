@@ -28,19 +28,17 @@ class UserController {
         // Verificar si la solicitud es POST (formulario enviado)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto User
-            $this->user->name = $_POST['name'];
             $this->user->username = $_POST['username'];
             $this->user->password = $_POST['password'];
             $this->user->email = $_POST['email'];
-            $this->user->direction = $_POST['direction'];
             $this->user->idRol = $_POST['idRol'];
 
 
             // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
             if ($this->user->register()) {
-                header('Location: ./crearUsuario');
+                header('Location: ./crearUsuario?success=1');
             } else {
-                echo "Error en el registro.";
+                header('Location: ./crearUsuario?error=1');
             }
         }else {
             // Cargar la vista del formulario de registro si la solicitud no es POST

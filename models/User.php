@@ -7,11 +7,9 @@ class User {
     private $table = 'usuario'; // Nombre de la tabla de usuarios
 
     public $idUsuario;
-    public $name;
     public $username;
     public $password;
     public $email;
-    public $direction;
     public $idRol;
 
     /**
@@ -26,8 +24,8 @@ class User {
      */
     public function register() {
         // Consulta SQL para insertar un nuevo usuario
-        $query = "INSERT INTO " . $this->table . " (name, username, password, email, direction, idRol) 
-          VALUES (:name, :username, :password, :email, :direction, :idRol)";
+        $query = "INSERT INTO " . $this->table . " (userame, password, email, idRol) 
+          VALUES (:username, :password, :email, :idRol)";
         $stmt = $this->conn->prepare($query);
 
         // Encriptar la contraseña antes de guardarla
@@ -37,17 +35,19 @@ class User {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
         // Enlazar los parámetros
-        $stmt->bindParam(':name', $this->name);
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':password', $this->password);
         $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':direction', $this->direction);
         $stmt->bindParam(':idRol', $this->idRol);
         // Ejecutar la consulta y devolver true si fue exitosa
-        if ($stmt->execute()) {
-            return true;
-        }
+        try {
+            if ($stmt->execute()) {
+                return true;
+            }
         return false;
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
     /**
@@ -65,7 +65,7 @@ class User {
 
         // Verificar si la contraseña proporcionada coincide con la almacenada
         if ($user && password_verify($this->password, $user['password'])) {
-            $this->idUsuario     = $user['id']; // Guardar el ID del usuario
+            $this->idUsuario = $user['id']; // Guardar el ID del usuario
             return true;
         }
         return false;
@@ -73,7 +73,7 @@ class User {
 
     public function consultarUsuarios(){
         try {
-            $query = "SELECT * FROM " . $this->table;
+            $query = "SELECT usuario.idUsuario, usuario.username, usuario.email, rol.name_rol FROM " . $this->table. " INNER JOIN rol ON usuario.idRol = rol.idRol;";
             $statement = $this->conn->prepare($query);
             $statement->execute();
 
@@ -88,11 +88,9 @@ class User {
     private function limpiar() {
     // Sanitizar atributos
     $this->idUsuario = htmlspecialchars(strip_tags($this->idUsuario)); // Si idUsuario es un entero, considera validarlo como tal
-    $this->name = htmlspecialchars(strip_tags($this->name));
     $this->username = htmlspecialchars(strip_tags($this->username));
     $this->password = htmlspecialchars(strip_tags($this->password)); // Generalmente, no se necesita sanitizar aquí, ya que se encripta
     $this->email = htmlspecialchars(strip_tags($this->email));
-    $this->direction = htmlspecialchars(strip_tags($this->direction));
     $this->idRol = htmlspecialchars(strip_tags($this->idRol)); // Si idRol es un entero, considera validarlo como tal
 }
 }

@@ -2,14 +2,14 @@
 
 <link rel="stylesheet" href="./css/crearUsuario.css">
 <spam class="txtG">Crear usuario</spam>
+
+<div id="mensajeExito" class="mensaje-exito">
+    
+</div>
+
 <div class="container">
 
-    <form class="crearUsu" action="./crearUsuario" method="POST">
-        <div class="form-group">
-            <label for="name">Nombre Completo:</label>
-            <input type="text" id="name" name="name" required maxlength="50">
-        </div>
-
+    <form id="form-registro" class="crearUsu" action="./crearUsuario" method="POST">
         <div class="form-group">
             <label for="username">Nombre de Usuario:</label>
             <input type="text" id="username" name="username" required maxlength="20">
@@ -23,16 +23,6 @@
         <div class="form-group">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required maxlength="50">
-        </div>
-
-        <div class="form-group">
-            <label for="numberPhone">Número de Teléfono:</label>
-            <input type="text" id="numberPhone" name="numberPhone" required maxlength="15">
-        </div>
-
-        <div class="form-group">
-            <label for="direction">Dirección:</label>
-            <input type="text" id="direction" name="direction" required maxlength="60">
         </div>
 
         <div class="form-group">
@@ -66,7 +56,6 @@
 
         <button type="submit">Crear</button>
     </form>
-
 
 </div>
 
