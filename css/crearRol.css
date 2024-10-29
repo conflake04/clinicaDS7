@@ -76,4 +76,23 @@ form {
 form {
     text-align: center;
 }
+.container-imaA {
+    position: relative;
+    top: -277px;
+    left: 40px;
 
+}
+
+.imaA {
+    width: 42px;
+}
+
+.container-imaH {
+    position: relative;
+    top: -277px;
+    left: 1575px;
+}
+
+.imaH {
+    width: 42px;
+}

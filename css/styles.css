@@ -125,7 +125,7 @@ footer {
   padding: 25px;
   row-gap: 10px;
   border-radius: 10px;
-  margin-top: 160px;
+  margin-top: 120px;
   width: 580px;
   align-items: center;
 }
@@ -173,4 +173,23 @@ footer {
   background-color: #e26d5b;
 }
 
+.container-imaA {
+  position: relative;
+  top: -358px;
+  right: 450px;
 
+}
+
+.imaA {
+  width: 42px;
+}
+
+.container-imaH {
+  position: relative;
+  top: -358px;
+  left: 1065px;
+}
+
+.imaH {
+  width: 42px;
+}

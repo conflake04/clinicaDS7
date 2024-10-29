@@ -1,6 +1,8 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/consultaRoles.css">
+
+
 <span class="txtC"> Eliminar Rol</span>
 
 <body>
@@ -15,16 +17,16 @@
         </thead>
         <tbody>
             <?php if (!empty($roles)): ?>
-                <?php foreach ($roles as $rol): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($rol['name_rol']); ?></td>
-                        <td><?php echo htmlspecialchars($rol['description']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
+            <?php foreach ($roles as $rol): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($rol['name_rol']); ?></td>
+                <td><?php echo htmlspecialchars($rol['description']); ?></td>
+            </tr>
+            <?php endforeach; ?>
             <?php else: ?>
-                <tr>
-                    <td colspan="2">No hay roles registrados.</td>
-                </tr>
+            <tr>
+                <td colspan="2">No hay roles registrados.</td>
+            </tr>
             <?php endif; ?>
         </tbody>
     </table>

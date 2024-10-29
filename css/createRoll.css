@@ -73,7 +73,26 @@ button:last-child {
 button:last-child:hover {
     background-color: #c9302c;
 }
+.container-imaA {
+    position: relative;
+    top: -63px;
+    right: 820px;
 
+}
+
+.imaA {
+    width: 42px;
+}
+
+.container-imaH {
+    position: relative;
+    top: -109px;
+    left: 820px;
+}
+
+.imaH {
+    width: 42px;
+}
 footer {
     text-align: center;
     padding: 20px;

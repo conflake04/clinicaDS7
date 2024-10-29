@@ -1,10 +1,12 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/consultaRoles.css">
- 
+
+
+
 <span class="txtC"> Consulta Roles</span>
 <div class="container">
-   
+
     <table>
         <thead>
             <tr>

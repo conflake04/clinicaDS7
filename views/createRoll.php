@@ -1,6 +1,14 @@
 <?php require 'templates/header.php'; ?>
 <link rel="stylesheet" href="../css/createRoll.css" />
-<!-- Página del panel de administración -->
+
+<a class="container-imaA" href="admin">
+    <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
+</a>
+
+<a class="container-imaH" href="admin">
+    <img class="imaH" src="css/imagenes/hogar.png" alt="Atras">
+</a>
+
 <div class="admin-container">
 
     <h2>Gestion de Roles</h2>

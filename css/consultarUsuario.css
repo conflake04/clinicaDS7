@@ -97,6 +97,8 @@ button a:hover {
 }
 .container-imaA{
   position: relative;
+  top: -339px;
+  left: 20px;
  
 }
 .imaA{
@@ -104,6 +106,8 @@ button a:hover {
 }
 .container-imaH{
   position: relative;
+  top: -339px;
+  left: 1595px;
   
 }
 .imaH{
