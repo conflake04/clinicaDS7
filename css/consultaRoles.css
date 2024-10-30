@@ -1,6 +1,5 @@
 .container {
   width: 90%;
-
   padding: 30px;
   background-color: #fff;
   border-radius: 15px;
@@ -110,22 +109,4 @@ button a {
 button a:hover {
   text-decoration: underline;
 }
-.container-imaA {
-  position: relative;
-  top: -63px;
-  
 
-}
-
-.imaA {
-  width: 42px;
-}
-
-.container-imaH {
-  position: relative;
-  
-}
-
-.imaH {
-  width: 42px;
-}

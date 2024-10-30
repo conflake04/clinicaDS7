@@ -77,6 +77,10 @@ class App {
                 require_once 'views/GestionEspecialidad.php';
                 break;
 
+            case 'GestionMedicos':
+                require_once 'views/GestionMedicos.php';
+                break;
+
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
                 break;
