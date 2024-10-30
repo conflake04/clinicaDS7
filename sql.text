@@ -20,3 +20,14 @@ CREATE TABLE especialidad (
     nombre_especialidad VARCHAR(255) NOT NULL,
     descripcion TEXT NOT NULL
 );
+
+CREATE TABLE doctores (
+    id_doctor INT PRIMARY KEY AUTO_INCREMENT,
+    numero_licencia VARCHAR(50) NOT NULL,
+    año_esperiencia INT,
+    turno VARCHAR(50),
+    id_especialidad INT,
+    id_usu INT,
+    FOREIGN KEY (id_usu) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad)
+);
