@@ -1,97 +1,186 @@
-/* Título principal en la parte superior */
-.titulo-principal {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #e0f7ff; /* Color de fondo si deseas */
-}
+/* Estilos generales para el formulario */
+@import url("https://fonts.googleapis.com/css2?family=Jockey+One&family=Khand:wght@300;400;500;600;700&display=swap");
 
-.txtG {
-    font-size: 28px;
-    color: #007bff;
-    font-weight: bold;
-}
-
-
-
-/* Fondo principal */
-body {
-    background-color: #e0f7ff;
-    font-family: Arial, sans-serif;
-}
-
-/* Contenedor del formulario */
 .container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 255, 0.2);
-    border: 2px solid #007bff;
+  background-color: #fff;
+  max-width: 750px;
+  width: 90%; 
+  margin: 50px auto 0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  
 }
 
-/* Título del formulario */
+
 .txtG {
-    font-size: 24px;
-    color: #007bff;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    display: block;
+  font-size: 32px;
+  text-align: center;
+  position: relative;
+  top: 30px;
+  font-family: "Khand";
+  font-weight: 500;
+  font-style: normal;
 }
 
-/* Estilos de botones */
-button[type="submit"] {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+.crearMedico {
+  width: 100%; 
+  max-width: 500px; 
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #4a628a;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: #f4f4f9;
+  box-sizing: border-box; 
+  position: relative;
+  top: -10px;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+/* Estilos para los grupos de formulario */
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
 }
 
-/* Estilos de los campos de entrada */
+/* Estilos para las etiquetas */
 .form-group label {
-    font-size: 14px;
-    color: #0056b3;
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f4f4f9; 
+  font-size: 16px;
 }
 
+/* Estilos para los campos de entrada de texto */
 .form-group input[type="text"],
-.form-group input[type="number"],
+.form-group input[type="number"] {
+  font-family: "Khand", sans-serif;
+  width: 100%; 
+  padding: 5px;
+  margin: 0 auto;
+  border: 3px solid #4f75ff; 
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 15px;
+  background-color: #fff; 
+  color: #000; 
+  transition: border-color 0.3s ease;
+}
+
+/* Estilos para la lista desplegable */
 .form-group select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    outline-color: #0056b3;
+  background-color: #7ab2d3;
+  color: #fff;
+  font-family: "Khand", sans-serif;
+  width: 100%; 
+  padding: 5px;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
 }
 
-/* Mensaje de éxito */
+.form-group select:hover {
+  background-color: #5ca7d3;
+}
+
+/* Estilos para el botón */
+form button {
+  width: 100%; 
+  padding: 12px 0;
+  background-color: #4f75ff;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #325ae9;
+}
+
+/* Estilos para el enfoque de los campos */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+  border-color: #007bff; 
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Centrar el contenido */
+form {
+  text-align: center;
+}
+
+/* Estilos para el enlace de cerrar sesión */
+.container p a {
+  color: #f4f4f9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container p a:hover {
+  text-decoration: underline;
+}
+
 .mensaje-exito {
-    color: #007bff;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 16px;
+  display: none;
+  padding: 15px;
+  color: #5c73f2;
+  margin: 15px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
 }
 
-/* Estilos para los íconos de navegación */
-.container-imaA, .container-imaH {
-    display: inline-block;
-    margin: 10px;
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .txtG {
+    font-size: 24px; 
+    margin: 15px;
+  }
+
+  form.crearUsu {
+    padding: 20px; /
+  }
+
+  .form-group label {
+    font-size: 14px; 
+  }
+
+  form button {
+    font-size: 15px; 
+  }
 }
 
-.imaA, .imaH {
-    width: 32px;
-    height: 32px;
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 10px; 
+  }
+
+  form.crearUsu {
+    padding: 20px; 
+    margin: 20px auto; 
+  }
+}
+
+.mensaje-exito {
+  background-color: #7ab2d3;
+  width: 50%;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 10px;
+ 
+  font-weight: 600;
+  font-style: normal;
 }

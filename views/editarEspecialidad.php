@@ -1,6 +1,6 @@
 <?php require 'templates/header.php'; ?>
 
-<link rel="stylesheet" href="./css/consultaRoles.css">
+<link rel="stylesheet" href="./css/editarMedico.css">
 <a class="container-imaA" href="GestionEspecialidad">
     <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
 </a>
@@ -39,7 +39,7 @@
         </tbody>
     </table>
 
-    <form method="POST" action="./editarEspecialidad">
+    <form class="formE" method="POST" action="./editarEspecialidad">
         <label class="txtR" for="id_especialidad">Ingrese el id de la especialidad a editar:</label>
         <input class="inputB" type="text" name="id_especialidad" id="id_especialidad" required>
 

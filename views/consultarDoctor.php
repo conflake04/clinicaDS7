@@ -11,7 +11,7 @@
 </a>
 
 <div class="table-container">
-    <span class="txtC"> Consulta Especialidad</span>
+    <span class="txtC"> Consultar Doctor</span>
     <table border="1">
         <thead>
             <tr>
