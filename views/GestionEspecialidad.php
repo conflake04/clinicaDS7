@@ -1,6 +1,6 @@
 <?php require 'templates/header.php'; ?>
 <link rel="stylesheet" href="../css/createRoll.css" />
-<a class="container-imaA" href="./admin">
+<a class="container-imaA" href="./admin"">
     <img class=" imaA" src="css/imagenes/atras.png" alt="Atras">
 </a>
 
@@ -12,7 +12,7 @@
 
     <button class="btnG"><a href="./crearEspecialidad">Crear Especialidad</a></button>
     <button class="btnG"><a href="./consultarEspecialidad">Consultar Especialidad</a></button>
-    <button class="btnG"><a href="">Editar Especialidad</a></button>
+    <button class="btnG"><a href="./editarEspecialidad">Editar Especialidad</a></button>
     <button class="btnG"><a href="./eliminarEspecialidad">Borrar Especialidad</a></button>
 
     <button class="btnC"><a href="./logout">Cerrar Sesión</a></button>

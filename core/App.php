@@ -95,6 +95,10 @@ class App {
                 $especialidadcontroller->eliminarEspecialidad();
                 break;
 
+            case 'editarEspecialidad':
+                $especialidadcontroller->editarEspecialidad();
+                break;
+
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
                 break;

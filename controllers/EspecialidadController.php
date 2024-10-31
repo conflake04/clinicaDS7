@@ -64,15 +64,22 @@ class EspecialidadController {
     }
 
     // Método para editar una especialidad
-    public function editarEspecialidad($id_especialidad, $nombre_especialidad, $descripcion) {
-        $this->especialidad->id_especialidad = $id_especialidad;
-        $this->especialidad->nombre_especialidad = $nombre_especialidad;
-        $this->especialidad->descripcion = $descripcion;
+    public function editarEspecialidad() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Asignar los datos del formulario al objeto especialidad
+            $this->especialidad->id_especialidad = $_POST['id_especialidad'];
+            $this->especialidad->nombre_especialidad = $_POST['nombre_especialidad'];
+            $this->especialidad->descripcion = $_POST['descripcion'];
 
-        if ($this->especialidad->editar()) {
-            return "Especialidad actualizada exitosamente.";
-        } else {
-            return "Error al actualizar la especialidad.";
+            // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
+            if ($this->especialidad->editar()) {
+                header('Location: ./editarEspecialidad?success=1');
+            } else {
+                header('Location: ./editarEspecialidad?error=1');
+            }
+        }else {
+            $especialidades = $this->especialidad->consultarTodos();
+            require_once 'views/editarEspecialidad.php';
         }
     }
 }
