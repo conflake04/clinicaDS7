@@ -4,7 +4,7 @@
 <div class=admin-container>
     <h2>Gestion de Especialidades</h2>
 
-    <button class="btnG"><a href="">Crear Especialidad</a></button>
+    <button class="btnG"><a href="./crearEspecialidad">Crear Especialidad</a></button>
     <button class="btnG"><a href="">Consultar Especialidad</a></button>
     <button class="btnG"><a href="">Editar Especialidad</a></button>
     <button class="btnG"><a href="">Borrar Especialidad</a></button>

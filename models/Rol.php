@@ -1,12 +1,5 @@
 <?php
 
-/*
-
-Clase Rol para manejar las operaciones CRUD de con los roles.
-
-*/
-
-
 class Rol {
 
     private $conn;
@@ -15,20 +8,9 @@ class Rol {
     public $nombre_rol;
     public $descripcion_rol;
 
-    /* 
-    
-        Constructor de la clase
-    */
-
     public function __construct($db) {
         $this->conn=$db;
     }
-
-    /* 
-    
-        Funcion para registrar un nuevo rol
-
-    */
 
     public function registrar_rol() {
         try {
