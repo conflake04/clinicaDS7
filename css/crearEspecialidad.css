@@ -1,0 +1,118 @@
+/* Estilos generales para el formulario */
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #4a628a;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Estilos para las etiquetas */
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffff;
+  font-size: 20px;
+}
+
+.txtG {
+  font-size: 32px;
+  text-align: center;
+  position: relative;
+  top: -15px;
+  color: #fff;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Estilos para los campos de entrada de texto */
+.form-group input[type="text"],
+.form-group textarea {
+  width: 90%;
+  padding: 12px;
+  margin: 0 auto;
+  border: 3px solid #4f75ff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 18px;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilos para el área de texto */
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* Estilos para el botón */
+.form-group button {
+  width: 90%;
+  padding: 12px 0;
+  background-color: #4f75ff;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para el enfoque de los campos */
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Centrando el formulario */
+form {
+  text-align: center;
+}
+.container-imaA {
+  position: relative;
+  top: -297px;
+  left: 40px;
+}
+
+.imaA {
+  width: 42px;
+}
+
+.container-imaH {
+  position: relative;
+  top: -297px;
+  left: 1750px;
+}
+
+.imaH {
+  width: 42px;
+}
+
+.mensaje-exito {
+  background-color: #7ab2d3;
+  width: 50%;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-style: normal;
+}
