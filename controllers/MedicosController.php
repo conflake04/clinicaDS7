@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/Doctor.php';
+require_once 'models/Medicos.php';
 require_once 'config/database.php';
 
 class DoctorController {
@@ -70,10 +70,9 @@ class DoctorController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto doctor
             $id_doctor = $_POST['id_doctor'];
-            $this->doctor->ano_experiencia = $_POST['ano_experiencia'];
+            $this->doctor->ano_experiencia = $_POST['año_experiencia'];
             $this->doctor->turno = $_POST['turno'];
-            $this->doctor->id_especialidad = $_POST['id_especialidad'];
-
+    
             // Editar el doctor y redirigir a la página de éxito si tiene éxito
             if ($this->doctor->editar_doctor($id_doctor)) {
                 header('Location: ./editarDoctor?success=1');
@@ -81,7 +80,8 @@ class DoctorController {
                 header('Location: ./editarDoctor?error=1');
             }
         } else {
-            $doctores = $this->doctor->consultar_doctor();
+            // Cambié esto para que llame a la función correcta
+            $doctores = $this->doctor->consultarDatos(); // Usa la función que definiste anteriormente
             require_once 'views/editarDoctor.php';
         }
     }

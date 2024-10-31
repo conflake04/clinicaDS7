@@ -3,6 +3,7 @@
 require_once 'controllers/UserController.php';
 require_once 'controllers/RolController.php';
 require_once 'controllers/EspecialidadController.php';
+require_once 'controllers/MedicosController.php';
 
 /**
  * Clase App para manejar las rutas de la aplicación.
@@ -17,6 +18,7 @@ class App {
         $controller = new UserController();
         $rolcontroller = new RolController();
         $especialidadcontroller = new EspecialidadController();
+        $medicocontroller = new DoctorController();
 
         // Si no hay una URL, cargar la página de inicio de sesión por defecto
         if (empty($url[0])) {
@@ -97,6 +99,14 @@ class App {
 
             case 'editarEspecialidad':
                 $especialidadcontroller->editarEspecialidad();
+                break;
+
+            case 'editarDoctor':
+                $medicocontroller->editarDoctor();
+                break;
+            
+             case 'eliminarDoctor':
+                $medicocontroller->eliminarDoctor();
                 break;
 
             default:

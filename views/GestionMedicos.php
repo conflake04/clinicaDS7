@@ -12,8 +12,8 @@
 
     <button class="btnG"><a href="">Crear Médico</a></button>
     <button class="btnG"><a href="">Consulta de Médicos</a></button>
-    <button class="btnG"><a href="">Editar Datos del Médico</a></button>
-    <button class="btnG"><a href="">Borrar Médico</a></button>
+    <button class="btnG"><a href="./editarDoctor">Editar Datos del Médico</a></button>
+    <button class="btnG"><a href="./eliminarDoctor">Borrar Médico</a></button>
 
     <button class="btnC"><a href="./logout">Cerrar Sesión</a></button>
 </div>
