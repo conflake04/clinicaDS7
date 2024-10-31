@@ -64,15 +64,19 @@ tbody td[colspan="2"] {
 
 .txtR {
   font-size: 20px;
- 
 }
 
 .inputB {
-  width: 50%; 
+  width: 50%;
   font-size: 20px;
 }
-form{
+form {
   margin: 0 auto;
+
+}
+
+.txtR, .inputB, button {
+  margin: 0; /* Opcional: Elimina márgenes adicionales */
 }
 /* Botón */
 .button-container {
@@ -90,9 +94,6 @@ button {
   font-size: 18px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: relative;
-  left: 560px;
-  top: -35px;
 }
 
 button:hover {
@@ -109,4 +110,3 @@ button a {
 button a:hover {
   text-decoration: underline;
 }
-

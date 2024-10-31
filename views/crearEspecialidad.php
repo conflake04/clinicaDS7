@@ -18,6 +18,7 @@
         <label for="nombre_especialidad">Nombre de la Especialidad:</label>
         <input type="text" id="nombre_especialidad" name="nombre_especialidad">
     </div>
+    
     <div id="mensajeExito" class="mensaje-exito">
 
     </div>

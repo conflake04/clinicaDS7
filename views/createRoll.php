@@ -1,5 +1,5 @@
 <?php require 'templates/header.php'; ?>
-<link rel="stylesheet" href="../css/createRoll.css" />
+<link    href="../css/createRoll.css" />
 
 <a class="container-imaA" href="admin">
     <img class="imaA" src="css/imagenes/atras.png" alt="Atras">

@@ -1,7 +1,13 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/consultaRoles.css">
+<a class="container-imaA" href="GestionEspecialidad">
+    <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
+</a>
 
+<a class="container-imaH" href="admin">
+    <img class="imaH" src="css/imagenes/hogar.png" alt="Atras">
+</a>
 
 <span class="txtC"> Eliminar Especialidad</span>
 
@@ -18,15 +24,15 @@
         <tbody>
             <?php
             $rows = $especialidades;
-            if(!empty($rows)){
+            if (!empty($rows)) {
                 foreach ($rows as $row) {
-                echo "<tr>";
-                echo "<td>{$row['id_especialidad']}</td>";
-                echo "<td>{$row['nombre_especialidad']}</td>";
-                echo "<td>{$row['descripcion']}</td>";
-                echo "</tr>";
+                    echo "<tr>";
+                    echo "<td>{$row['id_especialidad']}</td>";
+                    echo "<td>{$row['nombre_especialidad']}</td>";
+                    echo "<td>{$row['descripcion']}</td>";
+                    echo "</tr>";
                 }
-            }else{
+            } else {
                 echo '<td colspan="3">No hay roles registrados.</td>';
             }
             ?>

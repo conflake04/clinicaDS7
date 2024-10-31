@@ -2,7 +2,13 @@
 
 <link rel="stylesheet" href="./css/consultaRoles.css">
 
+<a class="container-imaA" href="createRoll">
+    <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
+</a>
 
+<a class="container-imaH" href="admin">
+    <img class="imaH" src="css/imagenes/hogar.png" alt="Atras">
+</a>
 
 <span class="txtC"> Consulta Roles</span>
 <div class="container">

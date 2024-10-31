@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  background-color: #133E87;
+  background-color: #133e87;
   color: #fff;
   padding: 10px 0;
   text-align: center;
@@ -111,7 +111,7 @@ header h1 {
 footer {
   text-align: center;
   padding: 10px 0;
-  background-color: #133E87;
+  background-color: #133e87;
   color: #fff;
   position: fixed;
   width: 100%;
@@ -129,7 +129,8 @@ footer {
   width: 580px;
   align-items: center;
 }
-.admin-container h1,h2 {
+.admin-container h1,
+h2 {
   text-align: center;
   font-size: 40px;
 }
@@ -174,10 +175,9 @@ footer {
 }
 
 .container-imaA {
-  position: relative;
-  top: -358px;
-  right: 450px;
-
+  position: fixed;
+  top: 7px;
+  left: 40px;
 }
 
 .imaA {
@@ -185,11 +185,10 @@ footer {
 }
 
 .container-imaH {
-  position: relative;
-  top: -358px;
-  left: 1065px;
+  position: fixed;
+  top: 7px;
+  right: 50px;
 }
-
 .imaH {
   width: 42px;
 }

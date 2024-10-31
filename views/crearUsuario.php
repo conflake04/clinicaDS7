@@ -10,10 +10,6 @@
     <img class="imaH" src="css/imagenes/hogar.png" alt="Atras">
 </a>
 
-<div id="mensajeExito" class="mensaje-exito">
-
-</div>
-
 <div class="container">
     <spam class="txtG">Crear usuario</spam>
     <form id="form-registro" class="crearUsu" action="./crearUsuario" method="POST">
@@ -26,9 +22,9 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required maxlength="255">
         </div>
-        <div id="mensajeExito" class="mensaje-exito">
 
-        </div>
+
+
 
         <div class="form-group">
             <label for="email">Correo Electrónico:</label>
@@ -65,8 +61,11 @@
         </div>
 
         <button type="submit">Crear</button>
-    </form>
 
+    </form>
+    <div id="mensajeExito" class="mensaje-exito">
+
+    </div>
 
 </div>
 

@@ -5,7 +5,7 @@
   background-color: #fff;
   max-width: 750px;
   width: 90%; 
-  margin: 12px auto 0;
+  margin: 50px auto 0;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   font-size: 32px;
   text-align: center;
   position: relative;
-  top: -80px;
+  top: -10px;
 }
 
 form.crearUsu {
@@ -32,7 +32,7 @@ form.crearUsu {
   color: #f4f4f9;
   box-sizing: border-box; 
   position: relative;
-  top: -90px;
+  top: -10px;
 }
 
 /* Estilos para los grupos de formulario */
@@ -138,18 +138,20 @@ form {
   font-size: 17px;
 }
 .container-imaA{
-  position: relative;
-  top: -63px;
-  right: 820px;
+  position: absolute;
+  top: 7px;
+  left: 60px;
+  
  
 }
 .imaA{
   width: 42px;
 }
 .container-imaH{
-  position: relative;
-  top: -109px;
-  left: 820px;
+  position: absolute;
+  top: 7px;
+  right: 60px;
+  
 }
 .imaH{
   width: 42px;
@@ -194,7 +196,7 @@ form {
   border-radius: 8px;
   margin: 0 auto;
   padding: 10px;
-  margin-bottom: 20px;
+ 
   font-weight: 600;
   font-style: normal;
 }

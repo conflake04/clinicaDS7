@@ -85,8 +85,8 @@ form {
   text-align: center;
 }
 .container-imaA {
-  position: relative;
-  top: -297px;
+  position: absolute;
+  top: 7px;
   left: 40px;
 }
 
@@ -95,8 +95,8 @@ form {
 }
 
 .container-imaH {
-  position: relative;
-  top: -297px;
+  position: absolute;
+  top: 7px;
   left: 1750px;
 }
 
