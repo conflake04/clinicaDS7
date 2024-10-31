@@ -100,10 +100,21 @@ class App {
             case 'editarEspecialidad':
                 $especialidadcontroller->editarEspecialidad();
                 break;
-
+            
             case 'agregarMedico':
                 $medicoscontroller->agregarDoctor();
                 break;
+
+                case 'editarDoctor':
+                    $medicoscontroller->editarDoctor();
+                    break;
+    
+                 case 'eliminarDoctor':
+                    $medicoscontroller->eliminarDoctor();
+                    break;
+                case 'consultarDoctor':
+                    $medicoscontroller->consultarDoctores();
+                    break;
 
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe

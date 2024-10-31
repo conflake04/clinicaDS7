@@ -7,7 +7,7 @@
     <span class="txtG">Registrar Doctor</span>
 </div>
 
-<a class="container-imaA" href="GestionMedico">
+<a class="container-imaA" href="GestionMedicos">
     <img class="imaA" src="css/imagenes/atras.png" alt="Atrás">
 </a>
 

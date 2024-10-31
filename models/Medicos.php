@@ -50,16 +50,30 @@ class Doctor {
         }
     }
 
+    public function consultarDatos() {
+        try {
+            // Seleccionar solo las columnas necesarias
+            $query = "SELECT id_doctor, año_esperiencia, turno FROM " . $this->table; 
+            $statement = $this->conn->prepare($query);
+            $statement->execute();
+    
+            // Retornar todos los resultados como un arreglo asociativo
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error al consultar doctor: " . $e->getMessage();
+            return false; // En caso de error, retornar false
+        }
+    }
+    
+
     // Editar doctor
     public function editar_doctor($id_doctor) {
         try {
-            $query = "UPDATE " . $this->table . " SET año_esperiencia = :ano_experiencia, turno = :turno, 
-                      id_especialidad = :id_especialidad WHERE id_doctor = :id_doctor";
+            $query = "UPDATE " . $this->table . " SET año_esperiencia = :ano_experiencia, turno = :turno  WHERE id_doctor = :id_doctor";
             $statement = $this->conn->prepare($query);
 
             $statement->bindParam(':ano_experiencia', $this->ano_experiencia);
             $statement->bindParam(':turno', $this->turno);
-            $statement->bindParam(':id_especialidad', $this->id_especialidad);
             $statement->bindParam(':id_doctor', $id_doctor);
 
             return $statement->execute();
