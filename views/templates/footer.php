@@ -33,6 +33,10 @@
                 }
             }, 100); // Un retraso mínimo para que el alert se cierre
         }
+        else{
+            const mensajeExito = document.getElementById("mensajeExito");
+            mensajeExito.style.display = "none";
+        }
     });
 </script>
 </body>
