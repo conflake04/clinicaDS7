@@ -87,6 +87,14 @@ class App {
                 $especialidadcontroller->agregarEspecialidad();
                 break;
 
+            case 'consultarEspecialidad':
+                $especialidadcontroller->consultarEspecialidades();
+                break;
+
+            case 'eliminarEspecialidad':
+                $especialidadcontroller->eliminarEspecialidad();
+                break;
+
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
                 break;

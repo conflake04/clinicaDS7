@@ -39,11 +39,11 @@ class Especialidad {
     // Método para eliminar una especialidad por ID
     public function eliminar() {
         try {
-            $query = "DELETE FROM " . $this->table . " WHERE id_especialidad = :id_especialidad";
+            $query = "DELETE FROM " . $this->table . " WHERE nombre_especialidad = :nombre_especialidad";
             $stmt = $this->conn->prepare($query);
 
-            $this->id_especialidad = htmlspecialchars(strip_tags($this->id_especialidad));
-            $stmt->bindParam(':id_especialidad', $this->id_especialidad);
+            $this->nombre_especialidad = htmlspecialchars(strip_tags($this->nombre_especialidad));
+            $stmt->bindParam(':nombre_especialidad', $this->nombre_especialidad);
 
             if ($stmt->execute()) {
                 return true;

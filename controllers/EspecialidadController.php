@@ -35,25 +35,32 @@ class EspecialidadController {
     }
 
     // Método para eliminar una especialidad por su ID
-    public function eliminarEspecialidad($id_especialidad) {
-        $this->especialidad->id_especialidad = $id_especialidad;
+    public function eliminarEspecialidad() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Asignar los datos del formulario al objeto especialidad
+            $this->especialidad->nombre_especialidad = $_POST['nombre_especialidad'];
 
-        if ($this->especialidad->eliminar()) {
-            return "Especialidad eliminada exitosamente.";
-        } else {
-            return "Error al eliminar la especialidad.";
+            // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
+            if ($this->especialidad->eliminar()) {
+                header('Location: ./eliminarEspecialidad?success=1');
+            } else {
+                header('Location: ./eliminarEspecialidad?error=1');
+            }
+        }else {
+            $especialidades = $this->especialidad->consultarTodos();
+            require_once 'views/eliminarEspecialidad.php';
         }
     }
 
     // Método para consultar todas las especialidades
     public function consultarEspecialidades() {
-        $especialidades = $this->especialidad->consultarTodos();
-
-        if (!empty($especialidades)) {
-            return $especialidades;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $especialidades = $this->especialidad->consultarTodos();
+            require_once 'views/consultarEspecialidad.php';
         } else {
-            return "No se encontraron especialidades.";
+            'views/consultarEspecialidad.php'; // Si no hay acción, cargar la vista principal
         }
+        
     }
 
     // Método para editar una especialidad

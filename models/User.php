@@ -24,7 +24,7 @@ class User {
      */
     public function register() {
         // Consulta SQL para insertar un nuevo usuario
-        $query = "INSERT INTO " . $this->table . " (userame, password, email, idRol) 
+        $query = "INSERT INTO " . $this->table . " (username, password, email, idRol) 
           VALUES (:username, :password, :email, :idRol)";
         $stmt = $this->conn->prepare($query);
 
