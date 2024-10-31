@@ -11,7 +11,7 @@
 </a>
 
 <div id="mensajeExito" class="mensaje-exito">
-    
+
 </div>
 
 <div class="container">
@@ -25,6 +25,9 @@
         <div class="form-group">
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required maxlength="255">
+        </div>
+        <div id="mensajeExito" class="mensaje-exito">
+
         </div>
 
         <div class="form-group">
