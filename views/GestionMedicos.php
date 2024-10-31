@@ -10,7 +10,7 @@
 <div class=admin-container>
     <h2>Gestion de Medicos</h2>
 
-    <button class="btnG"><a href="">Crear Médico</a></button>
+    <button class="btnG"><a href="./agregarMedico">Crear Médico</a></button>
     <button class="btnG"><a href="">Consulta de Médicos</a></button>
     <button class="btnG"><a href="">Editar Datos del Médico</a></button>
     <button class="btnG"><a href="">Borrar Médico</a></button>

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/Doctor.php';
+require_once 'models/Medicos.php';
 require_once 'config/database.php';
 
 class DoctorController {
@@ -27,13 +27,13 @@ class DoctorController {
 
             // Registrar al doctor y redirigir a la página de éxito si tiene éxito
             if ($this->doctor->registrar_doctor()) {
-                header('Location: ./crearDoctor?success=1');
+                header('Location: ./agregarMedico?success=1');
             } else {
-                header('Location: ./crearDoctor?error=1');
+                header('Location: ./agregarMedico?error=1');
             }
         } else {
             // Cargar la vista del formulario de registro si la solicitud no es POST
-            require_once 'views/crearDoctor.php';
+            require_once 'views/agregarMedico.php';
         }
     }
 

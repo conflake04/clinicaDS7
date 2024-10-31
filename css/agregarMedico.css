@@ -1,0 +1,97 @@
+/* Título principal en la parte superior */
+.titulo-principal {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #e0f7ff; /* Color de fondo si deseas */
+}
+
+.txtG {
+    font-size: 28px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+
+
+/* Fondo principal */
+body {
+    background-color: #e0f7ff;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del formulario */
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 255, 0.2);
+    border: 2px solid #007bff;
+}
+
+/* Título del formulario */
+.txtG {
+    font-size: 24px;
+    color: #007bff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Estilos de botones */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de los campos de entrada */
+.form-group label {
+    font-size: 14px;
+    color: #0056b3;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    outline-color: #0056b3;
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Estilos para los íconos de navegación */
+.container-imaA, .container-imaH {
+    display: inline-block;
+    margin: 10px;
+}
+
+.imaA, .imaH {
+    width: 32px;
+    height: 32px;
+}

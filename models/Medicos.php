@@ -21,6 +21,7 @@ class Doctor {
             $query = "INSERT INTO " . $this->table . " (numero_licencia, año_esperiencia, turno, id_especialidad, id_usu) 
                       VALUES (:numero_licencia, :ano_experiencia, :turno, :id_especialidad, :id_usu)";
             $statement = $this->conn->prepare($query);
+            
     
             $statement->bindParam(':numero_licencia', $this->numero_licencia);
             $statement->bindParam(':ano_experiencia', $this->ano_experiencia);

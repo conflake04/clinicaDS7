@@ -63,7 +63,7 @@ class Especialidad {
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
 
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $stmt;
 
         } catch (PDOException $e) {
             echo "Error al consultar especialidades: " . $e->getMessage();
