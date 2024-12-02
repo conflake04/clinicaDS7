@@ -8,8 +8,10 @@ require_once 'controllers/MedicosController.php';
 /**
  * Clase App para manejar las rutas de la aplicación.
  */
-class App {
-    public function __construct() {
+class App
+{
+    public function __construct()
+    {
         // Obtener la URL solicitada
         $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : null;
         $url = explode('/', $url);
@@ -60,7 +62,7 @@ class App {
             case 'crearRol':
                 require_once 'views/crearRol.php';
                 break;
-            
+
             case 'registrarRol':
                 $rolcontroller->registrar_rol();
                 break;
@@ -100,21 +102,45 @@ class App {
             case 'editarEspecialidad':
                 $especialidadcontroller->editarEspecialidad();
                 break;
-            
+
             case 'agregarMedico':
                 $medicoscontroller->agregarDoctor();
                 break;
 
-                case 'editarDoctor':
-                    $medicoscontroller->editarDoctor();
-                    break;
-    
-                 case 'eliminarDoctor':
-                    $medicoscontroller->eliminarDoctor();
-                    break;
-                case 'consultarDoctor':
-                    $medicoscontroller->consultarDoctores();
-                    break;
+            case 'editarDoctor':
+                $medicoscontroller->editarDoctor();
+                break;
+
+            case 'eliminarDoctor':
+                $medicoscontroller->eliminarDoctor();
+                break;
+            case 'consultarDoctor':
+                $medicoscontroller->consultarDoctores();
+                break;
+
+            case 'vistaPaciente':
+                require_once 'views/vistaPaciente.php';
+                break;
+
+            case 'citasPaciente':
+                require_once 'views/citasPaciente.php';
+                break;
+
+            case 'solicitarCitaP':
+                require_once 'views/solicitarCitaP.php';
+                break;
+
+            case 'vistaMedicos':
+                require_once 'views/vistaMedicos.php';
+                break;
+
+            case 'verCitasP':
+                require_once 'views/verCitasP.php';
+                break;
+
+            case 'verPacientes':
+                require_once 'views/verPacientes.php';
+                break;
 
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
