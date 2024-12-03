@@ -11,13 +11,16 @@
 </a>
 
 <div class="table-container">
-    <span class="txtC"> Consulta Usuario</span>
+    <span class="txtC">Consulta Usuario</span>
     <table>
         <thead>
             <tr>
-                <th>id del usuario</th>
-                <th>Nombre del Usuario</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
                 <th>Correo Electrónico</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
                 <th>Rol</th>
             </tr>
         </thead>
@@ -26,10 +29,13 @@
             // Iterar sobre los resultados de la consulta
             while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                echo "<td>{$row['idUsuario']}</td>";
-                echo "<td>{$row['username']}</td>";
+                echo "<td>{$row['cedula']}</td>";
+                echo "<td>{$row['nombre']}</td>";
+                echo "<td>{$row['apellido']}</td>";
                 echo "<td>{$row['email']}</td>";
-                echo "<td>{$row['name_rol']}</td>"; // Asumiendo que idRol es un campo en tu tabla
+                echo "<td>{$row['telefono']}</td>";
+                echo "<td>{$row['direccion']}</td>";
+                echo "<td>{$row['name_rol']}</td>";
                 echo "</tr>";
             }
             ?>

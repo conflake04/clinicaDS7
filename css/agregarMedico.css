@@ -184,3 +184,16 @@ form {
   font-weight: 600;
   font-style: normal;
 }
+
+.error {
+  background-color: #7ab2d3;
+  width: 50%;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 10px;
+
+  font-weight: 600;
+  font-style: normal;
+}

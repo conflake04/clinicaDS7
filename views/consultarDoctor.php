@@ -11,16 +11,18 @@
 </a>
 
 <div class="table-container">
-    <span class="txtC"> Consultar Doctor</span>
+    <span class="txtC">Consultar Doctor</span>
     <table border="1">
         <thead>
             <tr>
                 <th>ID Médico</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
                 <th>Numero de Licencia</th>
                 <th>Año de Experiencia</th>
                 <th>Turno</th>
                 <th>ID Especialidad</th>
-                <th>ID Usuario</th>
             </tr>
         </thead>
         <tbody>
@@ -30,15 +32,17 @@
                 foreach ($rows as $row) {
                     echo "<tr>";
                     echo "<td>{$row['id_doctor']}</td>";
+                    echo "<td>{$row['nombre']}</td>";
+                    echo "<td>{$row['apellido']}</td>";
+                    echo "<td>{$row['cedula']}</td>";
                     echo "<td>{$row['numero_licencia']}</td>";
-                    echo "<td>{$row['año_esperiencia']}</td>";
+                    echo "<td>{$row['anio_esperiencia']}</td>";
                     echo "<td>{$row['turno']}</td>";
                     echo "<td>{$row['id_especialidad']}</td>";
-                    echo "<td>{$row['id_usu']}</td>";
                     echo "</tr>";
                 }
             } else {
-                echo '<td colspan="6">No hay roles registrados.</td>';
+                echo '<tr><td colspan="8">No hay doctores registrados.</td></tr>';
             }
             ?>
         </tbody>

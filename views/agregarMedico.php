@@ -23,8 +23,8 @@
         </div>
 
         <div class="form-group">
-            <label for="ano_experiencia">Años de Experiencia:</label>
-            <input type="number" id="ano_experiencia" name="ano_experiencia" required>
+            <label for="anio_esperiencia">Años de Experiencia:</label>
+            <input type="number" id="anio_esperiencia" name="anio_esperiencia" required>
         </div>
 
         <div class="form-group">
@@ -60,32 +60,20 @@
         </div>
 
         <div class="form-group">
-            <label for="id_usu">Usuario:</label>
-            <select id="id_usu" name="id_usu" required>
-                <option class="txtP" value="">Seleccione un usuario</option>
-                <?php
-                include '../models/User.php';
-
-                $usuario = new User($db);
-                $stmtUsuario = $usuario->consultarUsuarios();
-
-                if ($stmtUsuario->rowCount() > 0) {
-                    while ($row = $stmtUsuario->fetch(PDO::FETCH_ASSOC)) {
-                        $idUsuario = $row['idUsuario'];
-                        $nombreUsuario = $row['username'];
-                        echo "<option value='{$idUsuario}'>{$nombreUsuario}</option>";
-                    }
-                } else {
-                    echo "<option value=''>No hay usuarios disponibles</option>";
-                }
-                ?>
-            </select>
+            <label for="cedula">Cedula:</label>
+            <input type="text" id="cedula" name="cedula" required maxlength="50">
         </div>
 
         <button type="submit">Registrar</button>
     </form>
-    <div id="mensajeExito" class="mensaje-exito">
-    </div>
+    <div id="mensajeExito" class="mensaje-exito"></div>
+
+    <?php 
+        if (isset($_SESSION['error_message'])) {
+            echo "<div class='error'>" . $_SESSION['error_message'] . "</div>";
+            unset($_SESSION['error_message']);
+        }
+    ?>
 </div>
 
 <?php require 'templates/footer.php'; ?>

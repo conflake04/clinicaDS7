@@ -20,14 +20,16 @@ class DoctorController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto doctor
             $this->doctor->numero_licencia = $_POST['numero_licencia'];
-            $this->doctor->ano_experiencia = $_POST['ano_experiencia'];
+            $this->doctor->anio_esperiencia = $_POST['anio_esperiencia'];
             $this->doctor->turno = $_POST['turno'];
             $this->doctor->id_especialidad = $_POST['id_especialidad'];
-            $this->doctor->id_usu = $_POST['id_usu'];
+            $this->doctor->cedula = $_POST['cedula'];
 
             // Registrar al doctor y redirigir a la página de éxito si tiene éxito
             if ($this->doctor->registrar_doctor()) {
                 header('Location: ./agregarMedico?success=1');
+            } elseif (isset($_SESSION['error_message'])) {
+                header('Location: ./agregarMedico');
             } else {
                 header('Location: ./agregarMedico?error=1');
             }
@@ -70,7 +72,7 @@ class DoctorController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto doctor
             $id_doctor = $_POST['id_doctor'];
-            $this->doctor->ano_experiencia = $_POST['año_experiencia'];
+            $this->doctor->anio_esperiencia = $_POST['anio_esperiencia'];
             $this->doctor->turno = $_POST['turno'];
     
             // Editar el doctor y redirigir a la página de éxito si tiene éxito

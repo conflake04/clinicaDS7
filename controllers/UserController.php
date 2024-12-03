@@ -28,11 +28,14 @@ class UserController {
         // Verificar si la solicitud es POST (formulario enviado)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto User
-            $this->user->username = $_POST['username'];
+            $this->user->cedula = $_POST['cedula'];
+            $this->user->nombre = $_POST['nombre'];
+            $this->user->apellido = $_POST['apellido'];
             $this->user->password = $_POST['password'];
             $this->user->email = $_POST['email'];
+            $this->user->telefono = $_POST['telefono'];
+            $this->user->direccion = $_POST['direccion'];
             $this->user->idRol = $_POST['idRol'];
-
 
             // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
             if ($this->user->register()) {
@@ -40,7 +43,7 @@ class UserController {
             } else {
                 header('Location: ./crearUsuario?error=1');
             }
-        }else {
+        } else {
             // Cargar la vista del formulario de registro si la solicitud no es POST
             require_once 'views/crearUsuario.php';
         }
@@ -53,28 +56,31 @@ class UserController {
         // Verificar si la solicitud es POST (formulario enviado)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto User
-            $this->user->username = $_POST['username'];
+            $this->user->email = $_POST['email'];
             $this->user->password = $_POST['password'];
 
             // Intentar iniciar sesión y redirigir al panel de administración si tiene éxito
             if ($this->user->login()) {
-                $_SESSION['user_id'] = $this->user->idUsuario; // Guardar el ID del usuario en la sesión
+                $_SESSION['user_id'] = $this->user->cedula; // Guardar la cédula del usuario en la sesión
                 header('Location: ./admin');
             } else {
                 echo "Credenciales incorrectas.";
             }
-        }else {
-            // Cargar la vista del formulario de registro si la solicitud no es POST
+        } else {
+            // Cargar la vista del formulario de inicio de sesión si la solicitud no es POST
             require_once 'views/login.php';
         }
     }
 
-    public function consultarUsuarios(){
+    /**
+     * Método para consultar todos los usuarios.
+     */
+    public function consultarUsuarios() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $users = $this->user->consultarUsuarios();
+            $users = $this->user->consultarUsuarios(); // Consultar los usuarios registrados
             require_once 'views/consultarUsuario.php';
         } else {
-            'views/GestionUsuarios.php'; // Si no hay acción, cargar la vista principal
+            require_once 'views/GestionUsuarios.php'; // Si no hay acción, cargar la vista principal
         }
     }
 
@@ -86,3 +92,4 @@ class UserController {
         header('Location: ./login'); // Redirigir al formulario de inicio de sesión
     }
 }
+?>

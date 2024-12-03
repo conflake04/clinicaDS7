@@ -6,11 +6,14 @@ class User {
     private $conn;
     private $table = 'usuario'; // Nombre de la tabla de usuarios
 
-    public $idUsuario;
-    public $username;
-    public $password;
-    public $email;
-    public $idRol;
+    public $cedula;   // Cedula del usuario (clave primaria)
+    public $nombre;   // Nombre del usuario
+    public $apellido; // Apellido del usuario
+    public $password; // Contraseña del usuario
+    public $email;    // Correo electrónico del usuario
+    public $telefono; // Teléfono del usuario
+    public $direccion; // Dirección del usuario
+    public $idRol;    // Rol del usuario
 
     /**
      * Constructor de la clase que recibe la conexión a la base de datos.
@@ -24,28 +27,33 @@ class User {
      */
     public function register() {
         // Consulta SQL para insertar un nuevo usuario
-        $query = "INSERT INTO " . $this->table . " (username, password, email, idRol) 
-          VALUES (:username, :password, :email, :idRol)";
+        $query = "INSERT INTO " . $this->table . " 
+          (cedula, nombre, apellido, password, email, telefono, direccion, idRol) 
+          VALUES (:cedula, :nombre, :apellido, :password, :email, :telefono, :direccion, :idRol)";
         $stmt = $this->conn->prepare($query);
 
-        // Encriptar la contraseña antes de guardarla
-      
+        // Limpiar y preparar los datos
         $this->limpiar();
-
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
         // Enlazar los parámetros
-        $stmt->bindParam(':username', $this->username);
+        $stmt->bindParam(':cedula', $this->cedula);
+        $stmt->bindParam(':nombre', $this->nombre);
+        $stmt->bindParam(':apellido', $this->apellido);
         $stmt->bindParam(':password', $this->password);
         $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':telefono', $this->telefono);
+        $stmt->bindParam(':direccion', $this->direccion);
         $stmt->bindParam(':idRol', $this->idRol);
-        // Ejecutar la consulta y devolver true si fue exitosa
+
+        // Ejecutar la consulta
         try {
             if ($stmt->execute()) {
                 return true;
             }
-        return false;
+            return false;
         } catch (PDOException $e) {
+            echo "Error al registrar el usuario: " . $e->getMessage();
             return false;
         }
     }
@@ -54,10 +62,10 @@ class User {
      * Método para iniciar sesión.
      */
     public function login() {
-        // Consulta SQL para buscar el usuario por nombre de usuario
-        $query = "SELECT * FROM " . $this->table . " WHERE username = :username";
+        // Consulta SQL para buscar el usuario por cédula
+        $query = "SELECT * FROM " . $this->table . " WHERE email = :email";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':username', $this->username); // Enlazar el parámetro del nombre de usuario
+        $stmt->bindParam(':email', $this->email); // Enlazar el parámetro de cédula
         $stmt->execute();
 
         // Obtener los resultados
@@ -65,32 +73,43 @@ class User {
 
         // Verificar si la contraseña proporcionada coincide con la almacenada
         if ($user && password_verify($this->password, $user['password'])) {
-            $this->idUsuario = $user['id']; // Guardar el ID del usuario
+            $this->cedula = $user['cedula']; // Guardar la cédula del usuario
             return true;
         }
         return false;
     }
 
-    public function consultarUsuarios(){
+    /**
+     * Método para consultar todos los usuarios.
+     */
+    public function consultarUsuarios() {
         try {
-            $query = "SELECT usuario.idUsuario, usuario.username, usuario.email, rol.name_rol FROM " . $this->table. " INNER JOIN rol ON usuario.idRol = rol.idRol;";
+            $query = "SELECT usuario.cedula, usuario.nombre, usuario.apellido, usuario.email, usuario.telefono, usuario.direccion, rol.name_rol 
+                      FROM " . $this->table . " 
+                      INNER JOIN rol ON usuario.idRol = rol.idRol";
             $statement = $this->conn->prepare($query);
             $statement->execute();
 
             return $statement;
-
         } catch (PDOException $e) {
-            echo "Error al consultar los roles: " . $e->getMessage();
+            echo "Error al consultar los usuarios: " . $e->getMessage();
             return [];
         }
     }
 
+    /**
+     * Método privado para limpiar datos.
+     */
     private function limpiar() {
-    // Sanitizar atributos
-    $this->idUsuario = htmlspecialchars(strip_tags($this->idUsuario)); // Si idUsuario es un entero, considera validarlo como tal
-    $this->username = htmlspecialchars(strip_tags($this->username));
-    $this->password = htmlspecialchars(strip_tags($this->password)); // Generalmente, no se necesita sanitizar aquí, ya que se encripta
-    $this->email = htmlspecialchars(strip_tags($this->email));
-    $this->idRol = htmlspecialchars(strip_tags($this->idRol)); // Si idRol es un entero, considera validarlo como tal
+        // Sanitizar atributos
+        $this->cedula = htmlspecialchars(strip_tags($this->cedula));
+        $this->nombre = htmlspecialchars(strip_tags($this->nombre));
+        $this->apellido = htmlspecialchars(strip_tags($this->apellido));
+        $this->password = htmlspecialchars(strip_tags($this->password)); 
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->telefono = htmlspecialchars(strip_tags($this->telefono));
+        $this->direccion = htmlspecialchars(strip_tags($this->direccion));
+        $this->idRol = htmlspecialchars(strip_tags($this->idRol));
+    }
 }
-}
+?>

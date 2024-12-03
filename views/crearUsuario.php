@@ -13,9 +13,20 @@
 <div class="container">
     <spam class="txtG">Crear usuario</spam>
     <form id="form-registro" class="crearUsu" action="./crearUsuario" method="POST">
+
         <div class="form-group">
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" required maxlength="20">
+            <label for="cedula">cedula:</label>
+            <input type="text" id="cedula" name="cedula" required maxlength="20">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required maxlength="20">
+        </div>
+
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required maxlength="20">
         </div>
 
         <div class="form-group">
@@ -23,12 +34,19 @@
             <input type="password" id="password" name="password" required maxlength="255">
         </div>
 
-
-
-
         <div class="form-group">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required maxlength="255">
         </div>
 
         <div class="form-group">

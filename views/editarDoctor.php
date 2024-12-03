@@ -28,12 +28,12 @@
                 foreach ($rows as $row) {
                     echo "<tr>";
                     echo "<td>{$row['id_doctor']}</td>";
-                    echo "<td>{$row['año_esperiencia']}</td>";
+                    echo "<td>{$row['anio_esperiencia']}</td>";
                     echo "<td>{$row['turno']}</td>";
                     echo "</tr>";
                 }
             } else {
-                echo '<td colspan="3">No hay roles registrados.</td>';
+                echo '<td colspan="3">No hay doctores registrados.</td>';
             }
             ?>
         </tbody>

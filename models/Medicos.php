@@ -6,40 +6,59 @@ class Doctor {
     private $table = 'doctores';
 
     public $numero_licencia;
-    public $ano_experiencia;
+    public $anio_esperiencia;
     public $turno;
     public $id_especialidad;
-    public $id_usu;
+    public $cedula;
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
     // Registrar doctor
-    public function registrar_doctor() {
+   public function registrar_doctor() {
         try {
-            $query = "INSERT INTO " . $this->table . " (numero_licencia, año_esperiencia, turno, id_especialidad, id_usu) 
-                      VALUES (:numero_licencia, :ano_experiencia, :turno, :id_especialidad, :id_usu)";
-            $statement = $this->conn->prepare($query);
-            
-    
-            $statement->bindParam(':numero_licencia', $this->numero_licencia);
-            $statement->bindParam(':ano_experiencia', $this->ano_experiencia);
-            $statement->bindParam(':turno', $this->turno);
-            $statement->bindParam(':id_especialidad', $this->id_especialidad);
-            $statement->bindParam(':id_usu', $this->id_usu);
+            // Verificar si la cédula existe en la tabla 'usuario'
+            $query_check = "SELECT COUNT(*) FROM usuario WHERE cedula = :cedula";
+            $statement_check = $this->conn->prepare($query_check);
+            $statement_check->bindParam(':cedula', $this->cedula);
+            $statement_check->execute();
 
-            return $statement->execute();
+            // Obtener el resultado
+            $exists = $statement_check->fetchColumn();
+
+            if ($exists > 0) {
+                // Si la cédula existe, proceder a registrar los datos del doctor
+                $query = "INSERT INTO " . $this->table . " (numero_licencia, anio_esperiencia, turno, id_especialidad, cedula) 
+                        VALUES (:numero_licencia, :anio_esperiencia, :turno, :id_especialidad, :cedula)";
+                $statement = $this->conn->prepare($query);
+
+                $statement->bindParam(':numero_licencia', $this->numero_licencia);
+                $statement->bindParam(':anio_esperiencia', $this->anio_esperiencia);
+                $statement->bindParam(':turno', $this->turno);
+                $statement->bindParam(':id_especialidad', $this->id_especialidad);
+                $statement->bindParam(':cedula', $this->cedula);
+
+                return $statement->execute();
+            } else {
+                // Si la cédula no existe, retornar un mensaje o falso
+                $_SESSION['error_message'] = "La cédula no está registrada en el sistema.";
+                return false;
+            }
         } catch (PDOException $e) {
-            echo "Error al registrar doctor: " . $e->getMessage();
+            $_SESSION['error_message'] = "Error al registrar doctor: " . $e->getMessage();
             return false;
         }
     }
 
+
     // Consultar doctor por ID
     public function consultar_doctor() {
         try {
-            $query = "SELECT * FROM " . $this->table;
+            $query = $query = "SELECT d.id_doctor, d.numero_licencia, d.anio_esperiencia, d.turno, d.id_especialidad, d.cedula, 
+                            u.nombre, u.apellido
+                            FROM " . $this->table . " d
+                            INNER JOIN usuario u ON d.cedula = u.cedula";
             $statement = $this->conn->prepare($query);
             $statement->execute();
 

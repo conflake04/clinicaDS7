@@ -7,8 +7,7 @@ CREATE TABLE rol (
 );
 
 CREATE TABLE usuario(
-    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
-    cedula VARCHAR(20) NOT NULL,
+    cedula VARCHAR(20) PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
     apellido VARCHAR(20) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -28,17 +27,16 @@ CREATE TABLE especialidad (
 CREATE TABLE doctores (
     id_doctor INT PRIMARY KEY AUTO_INCREMENT,
     numero_licencia VARCHAR(50) NOT NULL,
-    año_esperiencia INT,
+    anio_esperiencia INT,
     turno VARCHAR(50),
     id_especialidad INT,
-    id_usu INT,
-    FOREIGN KEY (id_usu) REFERENCES usuario(idUsuario),
+    cedula VARCHAR(20),
+    FOREIGN KEY (cedula) REFERENCES usuario(cedula),
     FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad)
 );
 
 CREATE TABLE Paciente (
-    pacienteID INT AUTO_INCREMENT PRIMARY KEY,
-    cedula  VARCHAR(20) NOT NULL,
+    cedula VARCHAR(20) PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     fechaNacimiento DATE NOT NULL,
@@ -49,20 +47,20 @@ CREATE TABLE Paciente (
 
 CREATE TABLE Citas (
     citaID INT AUTO_INCREMENT PRIMARY KEY,
-    cedulaPaciente INT NOT NULL,
+    cedulaPaciente VARCHAR(20) NOT NULL,
     fechaHora DATETIME NOT NULL,
     especialidad VARCHAR(50) NOT NULL,
-    doctorID VARCHAR(100),
+    doctorID INT NOT NULL,
     estado ENUM('Programada', 'Completada', 'Cancelada') DEFAULT 'Programada',
     FOREIGN KEY (cedulaPaciente) REFERENCES Paciente(cedula) ON DELETE CASCADE,
-    FOREIGN KEY (doctorID) REFERENCES doctores(cedula) ON DELETE CASCADE
+    FOREIGN KEY (doctorID) REFERENCES doctores(id_doctor) ON DELETE CASCADE
 );
 
 CREATE TABLE Diagnosticos (
     diagnosticoID INT AUTO_INCREMENT PRIMARY KEY,
     citaID INT NOT NULL,
     descripcion TEXT NOT NULL,
-    tratamiento TEXT,
+    tratamiento TEXT ,
     observaciones TEXT,
     FOREIGN KEY (citaID) REFERENCES Citas(citaID) ON DELETE CASCADE
 );

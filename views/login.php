@@ -9,7 +9,7 @@
 
             <div class="form-login-field">
                 <span class="txtU">Usuario</span>
-                <input type="text" name="username" required>
+                <input type="text" name="email" required>
             </div>
 
             <div class="form-login-field">
