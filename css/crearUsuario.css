@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-  
+  position: relative;
+  top: -10px;
 }
 
 
@@ -137,25 +138,8 @@ form {
   font-weight: bold;
   font-size: 17px;
 }
-.container-imaA{
-  position: absolute;
-  top: 7px;
-  left: 60px;
-  
- 
-}
-.imaA{
-  width: 42px;
-}
-.container-imaH{
-  position: absolute;
-  top: 7px;
-  right: 60px;
-  
-}
-.imaH{
-  width: 42px;
-}
+
+
 /* Estilos responsivos */
 @media (max-width: 600px) {
   .txtG {

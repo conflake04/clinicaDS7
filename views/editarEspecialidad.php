@@ -1,4 +1,4 @@
-<?php require 'templates/header.php'; ?>
+
 
 <link rel="stylesheet" href="./css/editarMedico.css">
 <a class="container-imaA" href="GestionEspecialidad">
@@ -52,4 +52,3 @@
     </form>
 </body>
 
-<?php require 'templates/footer.php'; ?>
