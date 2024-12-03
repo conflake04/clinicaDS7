@@ -54,7 +54,8 @@ form.crearUsu {
 /* Estilos para los campos de entrada de texto */
 .form-group input[type="text"],
 .form-group input[type="email"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group input[type="date"]{
   font-family: "Khand", sans-serif;
   width: 100%; 
   padding: 5px;

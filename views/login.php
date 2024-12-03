@@ -8,7 +8,7 @@
         <form class="form-login" method="POST" action="./login">
 
             <div class="form-login-field">
-                <span class="txtU">Usuario</span>
+                <span class="txtU">Correo</span>
                 <input type="text" name="email" required>
             </div>
 

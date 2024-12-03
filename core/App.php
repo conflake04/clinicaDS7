@@ -142,6 +142,10 @@ class App
                 require_once 'views/verPacientes.php';
                 break;
 
+            case 'agregarUsuario':
+                require_once 'views/agregarUsuario.php';
+                break;
+
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
                 break;

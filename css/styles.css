@@ -10,7 +10,6 @@ body {
   font-family: "Khand", sans-serif;
   background-color: #5c73f2;
   height: 100%;
-  
 }
 
 header {
@@ -126,21 +125,19 @@ footer {
   padding: 25px;
   row-gap: 10px;
   border-radius: 10px;
-  
   width: 580px;
   align-items: center;
- 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+ 
 }
 
 .admin-container h1,
 h2 {
   text-align: center;
   font-size: 40px;
-  
   
 }
 
@@ -150,9 +147,10 @@ h2 {
   font-size: 25px;
   font-weight: 500;
   font-style: normal;
+ 
 }
 .admin-container button:last-child {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .btnG {
   background-color: #4f75ff;
@@ -166,13 +164,14 @@ h2 {
   border: none;
   outline: none;
   padding: 15px 10px;
-  padding-top: 20px;
+  padding-top: 16px;
   border-radius: 7px;
   border: 1px solid #bbb;
   transition: all ease 0.3s;
-  margin-bottom: 15px;
+  margin-bottom: 7px;
   border-radius: 20px;
   width: 70%;
+  
 }
 
 .admin-container button:nth-child(-n + 4):hover {
