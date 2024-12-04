@@ -12,7 +12,13 @@
 
 <div class="container">
     <spam class="txtG">Agregar paciente</spam>
-    <form id="form-registro" class="crearUsu" action="./crearUsuario" method="POST">
+    <?php 
+        if (isset($_SESSION['error_message'])) {
+            echo "<div class='error'>" . $_SESSION['error_message'] . "</div>";
+            unset($_SESSION['error_message']);
+        }
+    ?>
+    <form id="form-registro" class="crearUsu" action="./agregarPaciente" method="POST">
 
         <div class="form-group">
             <label for="cedula">cedula:</label>
@@ -30,8 +36,8 @@
         </div>
 
         <div class="form-group">
-            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            <label for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
         </div>
 
         <div class="form-group">

@@ -4,6 +4,7 @@ require_once 'controllers/UserController.php';
 require_once 'controllers/RolController.php';
 require_once 'controllers/EspecialidadController.php';
 require_once 'controllers/MedicosController.php';
+require_once 'controllers/PacienteController.php';
 
 /**
  * Clase App para manejar las rutas de la aplicación.
@@ -13,14 +14,16 @@ class App
     public function __construct()
     {
         // Obtener la URL solicitada
-        $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : null;
-        $url = explode('/', $url);
+        $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : '';
+        $url = $url !== '' ? explode('/', $url) : [];
+
 
         // Instanciar el controlador de usuarios
         $controller = new UserController();
         $rolcontroller = new RolController();
         $especialidadcontroller = new EspecialidadController();
         $medicoscontroller = new DoctorController();
+        $pacientecontroller = new PacienteController();
 
         // Si no hay una URL, cargar la página de inicio de sesión por defecto
         if (empty($url[0])) {
@@ -142,10 +145,10 @@ class App
                 require_once 'views/verPacientes.php';
                 break;
 
-            case 'agregarUsuario':
-                require_once 'views/agregarUsuario.php';
+            case 'agregarPaciente':
+                $pacientecontroller->agregarPaciente();
                 break;
-
+                
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe
                 break;

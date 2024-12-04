@@ -91,7 +91,7 @@ class Doctor {
             $query = "UPDATE " . $this->table . " SET año_esperiencia = :ano_experiencia, turno = :turno  WHERE id_doctor = :id_doctor";
             $statement = $this->conn->prepare($query);
 
-            $statement->bindParam(':ano_experiencia', $this->ano_experiencia);
+            $statement->bindParam(':anio_esperiencia', $this->anio_esperiencia);
             $statement->bindParam(':turno', $this->turno);
             $statement->bindParam(':id_doctor', $id_doctor);
 
@@ -115,6 +115,19 @@ class Doctor {
             return false;
         }
     }
-}
 
+    public function consultarTodosDatos() {
+        try {
+            $query = "SELECT d.id_doctor, u.nombre, u.apellido 
+                    FROM " . $this->table . " d 
+                    INNER JOIN usuario u ON d.cedula = u.cedula";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        } catch (PDOException $e) {
+            echo "Error al consultar doctor por especialidad: " . $e->getMessage();
+            return false;
+        }
+    }
+}
 ?>
