@@ -7,7 +7,7 @@
     <span class="txtG">Crear Usuario: Médico</span>
 </div>
 
-<a class="container-imaA" href="GestionUsuario">
+<a class="container-imaA" href="creacionUsuario">
     <img class="imaA" src="css/imagenes/atras.png" alt="Atrás">
 </a>
 
@@ -140,7 +140,9 @@
 
         <button type="submit">Registrar</button>
     </form>
-    <div id="mensajeExito" class="mensaje-exito"></div>
+    <div id="mensajeExito" class="mensaje-exito">
+
+    </div>
 
     <?php 
         if (isset($_SESSION['error_message'])) {
@@ -148,6 +150,7 @@
             unset($_SESSION['error_message']);
         }
     ?>
+
 </div>
 
 <?php require 'templates/footer.php'; ?>

@@ -111,3 +111,15 @@ button a:hover {
 .imaH{
   width: 42px;
 }
+.mensaje-exito {
+  background-color: #7ab2d3;
+  width: 50%;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-style: normal;
+}

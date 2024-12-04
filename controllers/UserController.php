@@ -72,7 +72,7 @@ class UserController {
                     case 2:
                         header("Location: ./medico");
                         break;
-                    case 4:
+                    case 3:
                         header("Location: ./paciente");
                         break;
                     default:

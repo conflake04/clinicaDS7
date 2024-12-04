@@ -1,8 +1,9 @@
 <?php require 'templates/header.php'; ?>
 
 <link rel="stylesheet" href="./css/crearUsuario.css">
+<link rel="stylesheet" href="../css/createRoll.css" />
 
-<a class="container-imaA" href="GestionUsuario">
+<a class="container-imaA" href="creacionUsuario">
     <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
 </a>
 
