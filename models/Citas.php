@@ -33,8 +33,8 @@ class Citas {
     }
 
     // Ahora que tenemos el nombre de la especialidad, realizamos la inserción
-    $query = "INSERT INTO " . $this->table . " (cedulaPaciente, especialidad, doctorID) 
-              VALUES (:cedulaPaciente, :especialidad, :doctorID)";
+    $query = "INSERT INTO " . $this->table . " (cedulaPaciente, especialidad, doctorID, fechaHora, estado) 
+              VALUES (:cedulaPaciente, :especialidad, :doctorID, :fechaHora, :estado)";
     
     $statement = $this->conn->prepare($query);
 
@@ -45,6 +45,9 @@ class Citas {
     $statement->bindParam(':cedulaPaciente', $this->cedulaPaciente);
     $statement->bindParam(':especialidad', $nombreEspecialidad);  // Aquí usamos el nombre
     $statement->bindParam(':doctorID', $this->doctorID);
+    $statement->bindParam(':fechaHora', $this->fechaHora);
+    $statement->bindParam(':estado', $this->estado);
+
 
     try {
         // Ejecutar la consulta
@@ -62,7 +65,7 @@ class Citas {
 
 
 
-   public function consultarCitas($cedulaPaciente) {
+   public function consultarCitasPaciente($cedulaPaciente) {
     try {  // Verifica si se ejecuta
         // Preparar la consulta SQL
         $query = "SELECT citaID, especialidad, fechaHora, estado 
@@ -104,7 +107,39 @@ class Citas {
 }
 
 
+    public function consultarCitasDoctor($cedulaDoctor, $estado)
+    {
+        try {
+            $queryiddoctor = "SELECT d.id_doctor 
+                  FROM doctores d INNER JOIN usuario u ON d.cedula = u.cedula
+                  WHERE u.cedula = :cedulaDoctor";
 
+            $statementid = $this->conn->prepare($queryiddoctor);
+            $statementid->bindParam(':cedulaDoctor', $cedulaDoctor, PDO::PARAM_STR);
+            $statementid->execute();
+            $idDoctor = $statementid->fetch(PDO::FETCH_ASSOC)['id_doctor'];
+
+            $query = "SELECT c.citaID, c.fechaHora, p.cedula, p.nombre, p.apellido, p.fechaNacimiento 
+                  FROM citas c INNER JOIN paciente p ON c.cedulaPaciente = p.cedula
+                  WHERE doctorID = :idDoctor AND estado = :estado";
+
+            // Preparar la declaración
+            $statement = $this->conn->prepare($query);
+            $statement->bindParam(':idDoctor', $idDoctor, PDO::PARAM_STR);
+            $statement->bindParam(':estado', $estado, PDO::PARAM_STR);
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Manejo de errores si la consulta falla
+            echo "Error al consultar las citas: " . $e->getMessage();
+            return [];
+        } catch (Exception $e) {
+            // Manejo de otros errores
+            echo "Error: " . $e->getMessage();
+            return [];
+        }
+    }
 
     // Editar una cita existente
     public function editar_cita($citaID) {

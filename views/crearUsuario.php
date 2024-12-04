@@ -10,9 +10,9 @@
 <div class=admin-container>
     <h2>Creacion de Usuarios</h2>
 
-    <button class="btnG"><a href="./paginaCrearAdmin">Crear Usuario Administrador</a></button>
-    <button class="btnG"><a href="./paginaCrearMedico">Crear Usuario Médico</a></button>
-    <button class="btnG"><a href="./paginaCrearPaciente">Crear Usuario Paciente</a></button>
+    <button class="btnG"><a href="./crearUsuarioAdministrador">Crear Usuario Administrador</a></button>
+    <button class="btnG"><a href="./crearUsuarioMedico">Crear Usuario Médico</a></button>
+    <button class="btnG"><a href="./crearUsuarioPaciente">Crear Usuario Paciente</a></button>
 
     <button class="btnC"><a href="./logout">Cerrar Sesión</a></button>
 </div>

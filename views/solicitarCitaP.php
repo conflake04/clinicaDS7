@@ -76,7 +76,11 @@
             </select>
         </div>
 
-        
+
+        <div class="form-group">
+            <label for="fechaCita">Fecha de la cita:</label>
+            <input type="date" id="fechaCita" name="fechaCita" required>
+        </div>
 
         <button type="submit">Solicitar cita</button>
     </form>

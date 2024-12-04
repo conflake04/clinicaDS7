@@ -78,7 +78,7 @@
                 $idRol = $row['idRol'];
                 $name_rol = $row['name_rol'];
 
-                if (strtolower($name_rol) === 'médico') { // Verifica si es "Administrador"
+                if (strtolower($name_rol) === 'medico') { // Verifica si es "Administrador"
                     $adminFound = true;
                     echo "<option value='{$idRol}' selected>{$name_rol}</option>";
                 }
@@ -137,7 +137,6 @@
                 ?>
             </select>
         </div>
-
 
         <button type="submit">Registrar</button>
     </form>

@@ -207,6 +207,14 @@ class App
             case 'verCitasP':
                 $CitasController->citasPendientes();
                 break;
+
+            case 'verCitasDoctorPendientes':
+                $CitasController->citasPendientesDoctor($estado="Programada");
+                break;
+
+            case 'verCitasDoctorCompletadas':
+                $CitasController->citasPendientesDoctor($estado = "Completada");
+                break; 
                 
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe

@@ -30,6 +30,8 @@ public function registrarCita() {
         $this->citas->cedulaPaciente = $_POST['cedulaPaciente'];
         $this->citas->especialidad = $_POST['especialidad'];
         $this->citas->doctorID = $_POST['doctorID'];
+        $this->citas->estado = 'programado';
+        $this->citas->fechaHora = $_POST['FechaCita'];
 
         // Registrar la cita y redirigir según el resultado
         if ($this->citas->registrar_cita()) {
@@ -52,7 +54,7 @@ public function registrarCita() {
                 $cedulaPaciente = $_SESSION['cedula'];
 
             // Consulta las citas filtradas
-            $citas = $this->citas->consultarCitas($cedulaPaciente);
+            $citas = $this->citas->consultarCitasPaciente($cedulaPaciente);
 
             // Depuración opcional
 
@@ -64,6 +66,24 @@ public function registrarCita() {
     } else {
         require_once 'views/pacienteDashBoard.php';
     }
+    }
+
+    public function citasPendientesDoctor($estado)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if (isset($_SESSION['user_id'])) {
+                $cedulaDoctor = $_SESSION['user_id'];
+
+                // Consulta las citas filtradas
+                $citas = $this->citas->consultarCitasDoctor($cedulaDoctor, $estado);
+
+                require_once 'views/citasPendientesMedico.php';
+            } else {
+                echo "No se ha encontrado la cédula en la sesión.";
+            }
+        } else {
+            require_once 'views/citasPendientesMedicos.php';
+        }
     }
 
 }

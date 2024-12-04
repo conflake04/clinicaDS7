@@ -45,7 +45,7 @@ class UserController {
             }
         } else {
             // Cargar la vista del formulario de registro si la solicitud no es POST
-            require_once 'views/crearUsuario.php';
+            require_once 'views/crearUsuarioAdministrador.php';
         }
     }
 
