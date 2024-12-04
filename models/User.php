@@ -62,10 +62,10 @@ class User {
      * Método para iniciar sesión.
      */
     public function login() {
-        // Consulta SQL para buscar el usuario por cédula
+        // Consulta SQL para buscar el usuario por email
         $query = "SELECT * FROM " . $this->table . " WHERE email = :email";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $this->email); // Enlazar el parámetro de cédula
+        $stmt->bindParam(':email', $this->email); // Enlazar el parámetro de email
         $stmt->execute();
 
         // Obtener los resultados
@@ -74,6 +74,8 @@ class User {
         // Verificar si la contraseña proporcionada coincide con la almacenada
         if ($user && password_verify($this->password, $user['password'])) {
             $this->cedula = $user['cedula']; // Guardar la cédula del usuario
+            $this->idRol  = $user['idRol']; // Guardar el rol del usuario
+            $this->nombre = $user['nombre']; // Guardar el nombre del usuario
             return true;
         }
         return false;

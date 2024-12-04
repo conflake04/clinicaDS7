@@ -50,6 +50,14 @@ class App
                 }
                 break;
 
+            case 'medico':
+                if (isset($_SESSION['user_id'])) {
+                    require_once 'views/medicoDashboard.php';
+                } else {
+                    require_once 'view/admin.php';
+                }
+                break;
+
             case 'logout':
                 $controller->logout(); // Cerrar sesión
                 break;
