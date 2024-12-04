@@ -18,7 +18,7 @@
                 <th>Id Especialidad</th>
                 <th>Nombre Especialidad</th>
                 <th>Descripción</th>
-            </tr>
+            </tr>   
         </thead>
         <tbody>
             <?php
