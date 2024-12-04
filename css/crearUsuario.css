@@ -55,7 +55,8 @@ form.crearUsu {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
-.form-group input[type="date"]{
+.form-group input[type="date"], 
+.form-group input[type="datetime-local"]{
   font-family: "Khand", sans-serif;
   width: 100%; 
   padding: 5px;
@@ -108,7 +109,8 @@ form button:hover {
 /* Estilos para el enfoque de los campos */
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
-.form-group input[type="password"]:focus {
+.form-group input[type="password"]:focus, 
+.form-group input[type="datetime-local"]:focus{
   border-color: #007bff; 
   outline: none;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);

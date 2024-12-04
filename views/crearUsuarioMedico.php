@@ -57,42 +57,42 @@
         </div>
 
         <div class="form-group">
-        <label for="idRol">Rol:</label>
-        <select id="idRol" name="idRol" required>
-        <?php
-        include '../config/database.php';
-        include '../models/Rol.php';
+            <label for="idRol">Rol:</label>
+            <select id="idRol" name="idRol" required>
+                <?php
+                include '../config/database.php';
+                include '../models/Rol.php';
 
-        $database = new Database();
-        $db = $database->getConnection();
+                $database = new Database();
+                $db = $database->getConnection();
 
-        $rol = new Rol($db);
+                $rol = new Rol($db);
 
-        // Consulta solo el rol de "Administrador"
-        $stmt = $rol->consultar_roles_todos();
+                // Consulta solo el rol de "Administrador"
+                $stmt = $rol->consultar_roles_todos();
 
-        if ($stmt->rowCount() > 0) {
-            $adminFound = false; // Bandera para verificar si se encontró "Administrador"
+                if ($stmt->rowCount() > 0) {
+                    $adminFound = false; // Bandera para verificar si se encontró "Administrador"
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $idRol = $row['idRol'];
-                $name_rol = $row['name_rol'];
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $idRol = $row['idRol'];
+                        $name_rol = $row['name_rol'];
 
-                if (strtolower($name_rol) === 'medico') { // Verifica si es "Administrador"
-                    $adminFound = true;
-                    echo "<option value='{$idRol}' selected>{$name_rol}</option>";
+                        if (strtolower($name_rol) === 'medico') { // Verifica si es "Administrador"
+                            $adminFound = true;
+                            echo "<option value='{$idRol}' selected>{$name_rol}</option>";
+                        }
+                    }
+
+                    // Si no se encuentra "Administrador", muestra un mensaje
+                    if (!$adminFound) {
+                        echo "<option value='' disabled>No hay roles de administrador disponibles</option>";
+                    }
+                } else {
+                    echo "<option value='' disabled>No hay roles disponibles</option>";
                 }
-            }
-
-            // Si no se encuentra "Administrador", muestra un mensaje
-            if (!$adminFound) {
-                echo "<option value='' disabled>No hay roles de administrador disponibles</option>";
-            }
-        } else {
-            echo "<option value='' disabled>No hay roles disponibles</option>";
-        }
-        ?>
-        </select>
+                ?>
+            </select>
         </div>
 
 
@@ -140,16 +140,10 @@
 
         <button type="submit">Registrar</button>
     </form>
+
     <div id="mensajeExito" class="mensaje-exito">
 
     </div>
-
-    <?php 
-        if (isset($_SESSION['error_message'])) {
-            echo "<div class='error'>" . $_SESSION['error_message'] . "</div>";
-            unset($_SESSION['error_message']);
-        }
-    ?>
 
 </div>
 

@@ -33,8 +33,8 @@ class Citas {
     }
 
     // Ahora que tenemos el nombre de la especialidad, realizamos la inserción
-    $query = "INSERT INTO " . $this->table . " (cedulaPaciente, especialidad, doctorID, fechaHora, estado) 
-              VALUES (:cedulaPaciente, :especialidad, :doctorID, :fechaHora, :estado)";
+    $query = "INSERT INTO " . $this->table . " (cedulaPaciente, especialidad, doctorID, fechaHora) 
+              VALUES (:cedulaPaciente, :especialidad, :doctorID, :fechaHora)";
     
     $statement = $this->conn->prepare($query);
 
@@ -46,8 +46,6 @@ class Citas {
     $statement->bindParam(':especialidad', $nombreEspecialidad);  // Aquí usamos el nombre
     $statement->bindParam(':doctorID', $this->doctorID);
     $statement->bindParam(':fechaHora', $this->fechaHora);
-    $statement->bindParam(':estado', $this->estado);
-
 
     try {
         // Ejecutar la consulta
@@ -70,7 +68,7 @@ class Citas {
         // Preparar la consulta SQL
         $query = "SELECT citaID, especialidad, fechaHora, estado 
                   FROM Citas 
-                  WHERE cedulaPaciente = :cedulaPaciente AND estado = 'programada'";
+                  WHERE cedulaPaciente = :cedulaPaciente AND estado = 'Programada'";
 
         // Preparar la declaración
         $statement = $this->conn->prepare($query);
@@ -85,15 +83,7 @@ class Citas {
         if (!$executeResult) {
             throw new Exception("Error al ejecutar la consulta SQL.");
         }
-
-        // Obtener todos los resultados
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        // Depuración: Verificar el resultado
-        // Aquí es donde verás el resultado en la consola o página web
-
-        // Retornar los resultados
-        return $result;
+        return $statement->fetchAll(PDO::FETCH_ASSOC);;
 
     } catch (PDOException $e) {
         // Manejo de errores si la consulta falla

@@ -63,7 +63,7 @@ class PacienteController {
             $this->db->commit();
 
             // Redirigir al éxito
-            header('Location: ./creacionUsuario?success=1');
+            header('Location: ./crearUsuarioPaciente?success=1');
         } catch (Exception $e) {
             // Si hay algún error, revertir la transacción
             $this->db->rollBack();
@@ -72,7 +72,7 @@ class PacienteController {
         }
     } else {
         // Cargar la vista del formulario de registro si la solicitud no es POST
-        require_once 'views/crearUsuario.php';
+        require_once 'views/crearUsuarioPaciente.php';
     }
     }
 

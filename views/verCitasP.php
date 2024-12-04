@@ -9,10 +9,10 @@
 </a>
 <span class="txtC"> Citas Pendientes del Paciente: 
     <?php
-    session_start();  // Iniciar sesión
+    
     // Verifica si la cédula está en la sesión
-    if (isset($_SESSION['cedula'])) {
-        $cedulaPaciente = $_SESSION['cedula'];
+    if (isset($_SESSION['user_id'])) {
+        $cedulaPaciente = $_SESSION['user_id'];
         $nombrePaciente = $_SESSION['nombre'];
         echo $nombrePaciente . " ; " . $cedulaPaciente;
     } else {

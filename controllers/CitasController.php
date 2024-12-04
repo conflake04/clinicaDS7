@@ -30,12 +30,11 @@ public function registrarCita() {
         $this->citas->cedulaPaciente = $_POST['cedulaPaciente'];
         $this->citas->especialidad = $_POST['especialidad'];
         $this->citas->doctorID = $_POST['doctorID'];
-        $this->citas->estado = 'programado';
-        $this->citas->fechaHora = $_POST['FechaCita'];
+        $this->citas->fechaHora = $_POST['fechaCita'];
 
         // Registrar la cita y redirigir según el resultado
         if ($this->citas->registrar_cita()) {
-            header('Location: ./pacienteDashBoard');
+            header('Location: ./solicitarCitaP?success=1');
             exit();
         } else {
             echo "Error al registrar la cita";
@@ -50,8 +49,8 @@ public function registrarCita() {
 
     public function citasPendientes() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-           if (isset($_SESSION['cedula'])) {
-                $cedulaPaciente = $_SESSION['cedula'];
+           if (isset($_SESSION['user_id'])) {
+                $cedulaPaciente = $_SESSION['user_id'];
 
             // Consulta las citas filtradas
             $citas = $this->citas->consultarCitasPaciente($cedulaPaciente);

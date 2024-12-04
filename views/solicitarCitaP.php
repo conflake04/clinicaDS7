@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <label for="cedulaPaciente">Cédula:</label>
-            <input type="text" id="cedulaPaciente" name="cedulaPaciente" required maxlength="20">
+            <input type="text" id="cedulaPaciente" name="cedulaPaciente" required maxlength="20" value="<?php echo $_SESSION['user_id'] ?>">
         </div>
 
         <div class="form-group">
@@ -76,13 +76,16 @@
             </select>
         </div>
 
-
         <div class="form-group">
             <label for="fechaCita">Fecha de la cita:</label>
-            <input type="date" id="fechaCita" name="fechaCita" required>
+            <input type="datetime-local" id="fechaCita" name="fechaCita" required>
         </div>
 
         <button type="submit">Solicitar cita</button>
     </form>
+
+    <div id="mensajeExito" class="mensaje-exito">
+
+    </div>
 </div>
 <?php require 'templates/footer.php'; ?>
