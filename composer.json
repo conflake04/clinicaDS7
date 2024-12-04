@@ -1,0 +1,11 @@
+{
+    "name": "mikey/clinica-ds7",
+    "autoload": {
+        "psr-4": {
+            "Mikey\\ClinicaDs7\\": "src/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
