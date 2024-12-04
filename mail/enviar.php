@@ -24,14 +24,14 @@ try {
     $mail->isSMTP();                         // Usar SMTP
     $mail->Host       = 'smtp.gmail.com';     // Servidor SMTP de Gmail
     $mail->SMTPAuth   = true;                 // Habilitar autenticación SMTP
-    $mail->Username   = 'k9999chung18@gmail.com'; // Tu dirección de correo de Gmail
-    $mail->Password   = 'tzqzwkujyvsvwpmq';  // La contraseña o la contraseña de aplicación si tienes 2FA activada
+    $mail->Username   = '123hola45xd@gmail.com'; // Tu dirección de correo de Gmail
+    $mail->Password   = 'Hola1234567';  // La contraseña o la contraseña de aplicación si tienes 2FA activada
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Habilitar TLS implícito
     $mail->Port       = 465;                 // Puerto para SMTP con encriptación SMTPS
 
     // Definir los destinatarios
-    $mail->setFrom('k9999chung18@gmail.com', 'Angel Chung');  // Remitente
-    $mail->addAddress('k9999chung18@gmail.com', 'Angel');      // Destinatario
+    $mail->setFrom('123hola45xd@gmail.com', 'Amir');  // Remitente
+    $mail->addAddress('123hola45xd@gmail.com', 'Michael Gay');      // Destinatario
 
     // Contenido del correo
     $mail->isHTML(true);           // Establecer el formato del correo como HTML

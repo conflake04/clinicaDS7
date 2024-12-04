@@ -214,7 +214,14 @@ class App
 
             case 'verCitasDoctorCompletadas':
                 $CitasController->citasPendientesDoctor($estado = "Completada");
-                break; 
+                break;
+
+            case 'formularioCorreo':
+                require_once 'mail/correo.php';
+                break;
+            
+            case 'enviar':
+                require_once 'mail/enviar.php';
                 
             default:
                 echo "Página no encontrada"; // Mostrar error si la ruta no existe

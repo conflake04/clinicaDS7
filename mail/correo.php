@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Enviar Correo</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <h3 class="card-title">Formulario de contacto</h3>
 
-                    <form action="enviar.php" method="post">
+                    <form action="./enviar" method="post">
                         <div class="mb-3">
                             <label for="" class="form-label">Asunto</label>
                             <input
