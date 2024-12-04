@@ -24,7 +24,7 @@ class UserController {
     /**
      * Método para manejar el registro de un nuevo usuario.
      */
-    public function register() {
+    public function registarUsuarioAdministrador() {
         // Verificar si la solicitud es POST (formulario enviado)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Asignar los datos del formulario al objeto User
@@ -38,10 +38,10 @@ class UserController {
             $this->user->idRol = $_POST['idRol'];
 
             // Registrar al usuario y redirigir a la página de inicio de sesión si tiene éxito
-            if ($this->user->register()) {
-                header('Location: ./crearUsuario?success=1');
+            if ($this->user->registarUsuarioAdministrador()) {
+                header('Location: ./creacionUsuario?success=1');
             } else {
-                header('Location: ./crearUsuario?error=1');
+                header('Location: ./creacionUsuario?error=1');
             }
         } else {
             // Cargar la vista del formulario de registro si la solicitud no es POST
@@ -72,8 +72,8 @@ class UserController {
                     case 2:
                         header("Location: ./medico");
                         break;
-                    case 3:
-                        echo "ES UN PACIENTE";
+                    case 4:
+                        header("Location: ./paciente");
                         break;
                     default:
                         echo "ROL NO DEFINIDO";
@@ -94,7 +94,7 @@ class UserController {
     public function consultarUsuarios() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $users = $this->user->consultarUsuarios(); // Consultar los usuarios registrados
-            require_once 'views/consultarUsuario.php';
+            require_once 'views/consultarUsuarioAdministrador.php';
         } else {
             require_once 'views/GestionUsuarios.php'; // Si no hay acción, cargar la vista principal
         }
@@ -107,5 +107,6 @@ class UserController {
         session_destroy(); // Destruir la sesión actual
         header('Location: ./login'); // Redirigir al formulario de inicio de sesión
     }
+
 }
 ?>

@@ -23,83 +23,48 @@ class CitasController {
     /**
      * Método para registrar una nueva cita.
      */
-    public function registrarCita() {
-        // Verificar si la solicitud es POST (formulario enviado)
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Asignar los datos del formulario al modelo Citas
-            $this->citas->cedulaPaciente = $_POST['cedulaPaciente'];
-            $this->citas->fechaHora = $_POST['fechaHora'];
-            $this->citas->especialidad = $_POST['especialidad'];
-            $this->citas->doctorID = $_POST['doctorID'];
-            $this->citas->estado = $_POST['estado'];
+public function registrarCita() {
+    // Verificar si la solicitud es POST (formulario enviado)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Asignar los datos del formulario al modelo Citas
+        $this->citas->cedulaPaciente = $_POST['cedulaPaciente'];
+        $this->citas->especialidad = $_POST['especialidad'];
+        $this->citas->doctorID = $_POST['doctorID'];
 
-            // Registrar la cita y redirigir según el resultado
-            if ($this->citas->registrar_cita()) {
-                header('Location: ./registrarCita?success=1');
-            } else {
-                header('Location: ./registrarCita?error=1');
-            }
+        // Registrar la cita y redirigir según el resultado
+        if ($this->citas->registrar_cita()) {
+            header('Location: ./pacienteDashBoard');
+            exit();
         } else {
-            // Cargar la vista del formulario de registro de citas si la solicitud no es POST
-            require_once 'views/registrarCita.php';
+            echo "Error al registrar la cita";
+            exit();
         }
+    } else {
+        // Cargar la vista del formulario de registro de citas si la solicitud no es POST
+        require_once 'views/solicitarCitaP.php';
     }
+}
 
-    /**
-     * Método para consultar todas las citas.
-     */
-    public function consultarCitas() {
+
+    public function citasPendientes() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $citas = $this->citas->consultar_citas();
-            require_once 'views/consultarCitas.php';
+           if (isset($_SESSION['cedula'])) {
+                $cedulaPaciente = $_SESSION['cedula'];
+
+            // Consulta las citas filtradas
+            $citas = $this->citas->consultarCitas($cedulaPaciente);
+
+            // Depuración opcional
+
+            // Carga la vista con las citas
+            require_once 'views/verCitasP.php';
         } else {
-            require_once 'views/GestionCitas.php';
+            echo "No se ha encontrado la cédula en la sesión.";
         }
+    } else {
+        require_once 'views/pacienteDashBoard.php';
+    }
     }
 
-    /**
-     * Método para consultar una cita específica por su ID.
-     */
-    public function consultarCitaPorId() {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
-            $cita = $this->citas->consultar_cita_por_id($_GET['id']);
-            require_once 'views/consultarCita.php';
-        } else {
-            header('Location: ./consultarCitas?error=1');
-        }
-    }
-
-    /**
-     * Método para editar una cita existente.
-     */
-    public function editarCita() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['citaID'])) {
-            $this->citas->fechaHora = $_POST['fechaHora'];
-            $this->citas->especialidad = $_POST['especialidad'];
-            $this->citas->doctorID = $_POST['doctorID'];
-            $this->citas->estado = $_POST['estado'];
-
-            if ($this->citas->editar_cita($_POST['citaID'])) {
-                header('Location: ./editarCita?success=1');
-            } else {
-                header('Location: ./editarCita?error=1');
-            }
-        } else {
-            require_once 'views/editarCita.php';
-        }
-    }
-
-    /**
-     * Método para eliminar una cita.
-     */
-    public function eliminarCita() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['citaID'])) {
-            if ($this->citas->eliminar_cita($_POST['citaID'])) {
-                header('Location: ./consultarCitas?success=1');
-            } else {
-                header('Location: ./consultarCitas?error=1');
-            }
-        }
-    }
 }
 ?>

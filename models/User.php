@@ -25,7 +25,7 @@ class User {
     /**
      * Método para registrar un nuevo usuario.
      */
-    public function register() {
+    public function registarUsuarioAdministrador() {
         // Consulta SQL para insertar un nuevo usuario
         $query = "INSERT INTO " . $this->table . " 
           (cedula, nombre, apellido, password, email, telefono, direccion, idRol) 
@@ -88,7 +88,7 @@ class User {
         try {
             $query = "SELECT usuario.cedula, usuario.nombre, usuario.apellido, usuario.email, usuario.telefono, usuario.direccion, rol.name_rol 
                       FROM " . $this->table . " 
-                      INNER JOIN rol ON usuario.idRol = rol.idRol";
+                      INNER JOIN rol ON usuario.idRol = rol.idRol WHERE rol.name_rol='administrador'";
             $statement = $this->conn->prepare($query);
             $statement->execute();
 
@@ -98,6 +98,9 @@ class User {
             return [];
         }
     }
+
+
+
 
     /**
      * Método privado para limpiar datos.

@@ -43,7 +43,7 @@ class Paciente {
     // Método para consultar todos los pacientes
     public function consultarPacientes() {
         try {
-            $query = "SELECT * FROM " . $this->table;
+            $query = "SELECT cedula, nombre, apellido, fechaNacimiento, telefono, correo, direccion FROM " . $this->table;
             $statement = $this->conn->prepare($query);
             $statement->execute();
 

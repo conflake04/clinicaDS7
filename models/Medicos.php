@@ -55,10 +55,8 @@ class Doctor {
     // Consultar doctor por ID
     public function consultar_doctor() {
         try {
-            $query = $query = "SELECT d.id_doctor, d.numero_licencia, d.anio_esperiencia, d.turno, d.id_especialidad, d.cedula, 
-                            u.nombre, u.apellido
-                            FROM " . $this->table . " d
-                            INNER JOIN usuario u ON d.cedula = u.cedula";
+            $query = "SELECT d.id_doctor, d.numero_licencia, d.anio_esperiencia, d.turno, d.id_especialidad, d.cedula,u.nombre, u.apellido
+                            FROM " . $this->table . " d INNER JOIN usuario u ON d.cedula = u.cedula";
             $statement = $this->conn->prepare($query);
             $statement->execute();
 
@@ -72,7 +70,7 @@ class Doctor {
     public function consultarDatos() {
         try {
             // Seleccionar solo las columnas necesarias
-            $query = "SELECT id_doctor, año_esperiencia, turno FROM " . $this->table; 
+            $query = "SELECT id_doctor, anio_esperiencia, turno FROM " . $this->table; 
             $statement = $this->conn->prepare($query);
             $statement->execute();
     
@@ -83,24 +81,34 @@ class Doctor {
             return false; // En caso de error, retornar false
         }
     }
+
+
     
 
     // Editar doctor
-    public function editar_doctor($id_doctor) {
-        try {
-            $query = "UPDATE " . $this->table . " SET año_esperiencia = :ano_experiencia, turno = :turno  WHERE id_doctor = :id_doctor";
-            $statement = $this->conn->prepare($query);
+   public function editar_doctor($id_doctor) {
+    try {
+        // Consulta para actualizar los datos del médico
+        $query = "UPDATE " . $this->table . " 
+                  SET anio_esperiencia = :anio_esperiencia, turno = :turno 
+                  WHERE id_doctor = :id_doctor";
+        $statement = $this->conn->prepare($query);
 
-            $statement->bindParam(':anio_esperiencia', $this->anio_esperiencia);
-            $statement->bindParam(':turno', $this->turno);
-            $statement->bindParam(':id_doctor', $id_doctor);
+        // Vinculamos los parámetros
+        $statement->bindParam(':anio_esperiencia', $this->anio_esperiencia);
+        $statement->bindParam(':turno', $this->turno);
+        $statement->bindParam(':id_doctor', $id_doctor);
 
-            return $statement->execute();
-        } catch (PDOException $e) {
-            echo "Error al editar doctor: " . $e->getMessage();
-            return false;
-        }
+        // Ejecutar la actualización
+        return $statement->execute();
+    } catch (PDOException $e) {
+        echo "Error al editar doctor: " . $e->getMessage();
+        return false;
     }
+    }
+
+
+
 
     // Eliminar doctor
     public function eliminar_doctor($id_doctor) {
@@ -126,6 +134,21 @@ class Doctor {
             return $stmt;
         } catch (PDOException $e) {
             echo "Error al consultar doctor por especialidad: " . $e->getMessage();
+            return false;
+        }
+    }
+
+
+    public function consultar_doctor_editar() {
+         try {
+            $query = "SELECT d.id_doctor, u.nombre,u.apellido, d.anio_esperiencia, d.turno
+                            FROM " . $this->table . " d INNER JOIN usuario u ON d.cedula = u.cedula";
+            $statement = $this->conn->prepare($query);
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error al consultar doctor: " . $e->getMessage();
             return false;
         }
     }

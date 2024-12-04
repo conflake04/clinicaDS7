@@ -16,28 +16,57 @@ class DoctorController {
     }
 
     // Método para agregar un nuevo doctor
-    public function agregarDoctor() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Asignar los datos del formulario al objeto doctor
-            $this->doctor->numero_licencia = $_POST['numero_licencia'];
-            $this->doctor->anio_esperiencia = $_POST['anio_esperiencia'];
-            $this->doctor->turno = $_POST['turno'];
-            $this->doctor->id_especialidad = $_POST['id_especialidad'];
-            $this->doctor->cedula = $_POST['cedula'];
+   public function agregarDoctor() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Asignar los datos del formulario al objeto usuario
+        $usuario = new User($this->db);
+        $usuario->cedula = $_POST['cedula'];
+        $usuario->nombre = $_POST['nombre'];
+        $usuario->apellido = $_POST['apellido'];
+        $usuario->email = $_POST['email'];
+        $usuario->telefono = $_POST['telefono'];
+        $usuario->direccion = $_POST['direccion'];
+        $usuario->password = $_POST['password']; 
+        $usuario->idRol = $_POST['idRol'];
 
-            // Registrar al doctor y redirigir a la página de éxito si tiene éxito
-            if ($this->doctor->registrar_doctor()) {
-                header('Location: ./agregarMedico?success=1');
-            } elseif (isset($_SESSION['error_message'])) {
-                header('Location: ./agregarMedico');
-            } else {
-                header('Location: ./agregarMedico?error=1');
+        // Asignar los datos del formulario al objeto doctor
+        $this->doctor->numero_licencia = $_POST['numero_licencia'];
+        $this->doctor->anio_esperiencia = $_POST['anio_esperiencia'];
+        $this->doctor->turno = $_POST['turno'];
+        $this->doctor->id_especialidad = $_POST['id_especialidad'];
+        $this->doctor->cedula = $_POST['cedula'];  // Relacionado con la tabla usuario
+
+        // Iniciar la transacción
+        $this->db->beginTransaction();
+
+        try {
+            // Registrar al usuario
+            if (!$usuario->registarUsuarioAdministrador()) {
+                throw new Exception('Error al registrar usuario');
             }
-        } else {
-            // Cargar la vista del formulario de registro si la solicitud no es POST
-            require_once 'views/agregarMedico.php';
+
+            // Registrar al doctor
+            if (!$this->doctor->registrar_doctor()) {
+                throw new Exception('Error al registrar doctor');
+            }
+
+            // Confirmar la transacción si ambas inserciones son exitosas
+            $this->db->commit();
+
+            // Redirigir al éxito
+            header('Location: ./creacionUsuario');
+        } catch (Exception $e) {
+            // Si hay algún error, revertir la transacción
+            $this->db->rollBack();
+            $_SESSION['error_message'] = $e->getMessage();
+            header('Location: ./creacionUsuario');
         }
+    } else {
+        // Cargar la vista del formulario de registro si la solicitud no es POST
+        require_once 'views/crearUsuario.php';
     }
+    }
+
 
     // Método para eliminar un doctor por su ID
     public function eliminarDoctor() {
@@ -83,9 +112,9 @@ class DoctorController {
             }
         } else {
             // Cambié esto para que llame a la función correcta
-            $doctores = $this->doctor->consultarDatos(); // Usa la función que definiste anteriormente
+            $doctores = $this->doctor->consultar_doctor_editar(); // Usa la función que definiste anteriormente
             require_once 'views/editarDoctor.php';
         }
     }
 }
-?>
+?>  

@@ -5,6 +5,7 @@ require_once 'controllers/RolController.php';
 require_once 'controllers/EspecialidadController.php';
 require_once 'controllers/MedicosController.php';
 require_once 'controllers/PacienteController.php';
+require_once 'controllers/CitasController.php';
 
 /**
  * Clase App para manejar las rutas de la aplicación.
@@ -24,6 +25,7 @@ class App
         $especialidadcontroller = new EspecialidadController();
         $medicoscontroller = new DoctorController();
         $pacientecontroller = new PacienteController();
+        $CitasController = new CitasController();
 
         // Si no hay una URL, cargar la página de inicio de sesión por defecto
         if (empty($url[0])) {
@@ -37,9 +39,34 @@ class App
                 $controller->login(); // Cargar el método de inicio de sesión
                 break;
 
-            case 'crearUsuario':
-                $controller->register(); // Cargar el método de registro
+            case 'crearUsuarioAdministrador':
+                $controller->registarUsuarioAdministrador(); // Cargar el método de registro
                 break;
+
+            case 'crearUsuarioMedico':
+                $medicoscontroller->agregarDoctor();
+                break;
+
+            case 'crearUsuarioPaciente':
+                $pacientecontroller->agregarPaciente();
+                break;
+
+            case 'paginaCrearAdmin':
+                require_once 'views/crearUsuarioAdministrador.php';
+                break;
+
+            case 'paginaCrearMedico':
+                require_once 'views/crearUsuarioMedico.php';
+                break;
+
+            case 'paginaCrearPaciente':
+                require_once 'views/crearUsuarioPaciente.php';
+                break;
+
+            case 'pacienteDashBoard':
+                require_once 'views/pacienteDashBoard.php';
+                break;
+
 
             case 'admin':
                 // Verificar si el usuario está autenticado antes de mostrar el panel de administración
@@ -56,6 +83,14 @@ class App
                 } else {
                     require_once 'view/admin.php';
                 }
+                break;
+
+            case 'paciente':
+                if (isset($_SESSION['user_id'])) {
+                    require_once 'views/pacienteDashBoard.php';
+                } else {
+                    require_once 'view/admin.php';
+                }   
                 break;
 
             case 'logout':
@@ -87,6 +122,10 @@ class App
                 break;
 
             case 'consultarUsuario':
+                require_once 'views/consultarUsuario.php';
+                break;
+
+            case 'consultarUsuarioAdministrador':
                 $controller->consultarUsuarios();
                 break;
 
@@ -138,7 +177,7 @@ class App
                 break;
 
             case 'solicitarCitaP':
-                require_once 'views/solicitarCitaP.php';
+                $CitasController->registrarCita();
                 break;
 
             case 'vistaMedicos':
@@ -146,15 +185,27 @@ class App
                 break;
 
             case 'verCitasP':
-                require_once 'views/verCitasP.php';
+                $CitasController->citasPendientes();
                 break;
 
             case 'verPacientes':
-                require_once 'views/verPacientes.php';
+                $pacientecontroller->consultarPacientes();
                 break;
 
             case 'agregarPaciente':
                 $pacientecontroller->agregarPaciente();
+                break;
+
+            case 'creacionUsuario':
+                require_once 'views/crearUsuario.php';
+                break;
+
+            case 'agendarCita':
+                require_once 'views/solicitarCitaP.php';
+                break;
+
+            case 'verCitasP':
+                $CitasController->citasPendientes();
                 break;
                 
             default:

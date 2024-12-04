@@ -16,7 +16,9 @@
     <table border="1">
         <thead>
             <tr>
-                <th>ID Médico</th>
+                <th>ID Médico</th>  
+                <th>Nombre del Médico</th>
+                <th>Apellido del Médico</th>
                 <th>Años Experiencia</th>
                 <th>Turno</th>
             </tr>
@@ -28,23 +30,25 @@
                 foreach ($rows as $row) {
                     echo "<tr>";
                     echo "<td>{$row['id_doctor']}</td>";
+                    echo "<td>{$row['nombre']}</td>";
+                    echo "<td>{$row['apellido']}</td>";
                     echo "<td>{$row['anio_esperiencia']}</td>";
                     echo "<td>{$row['turno']}</td>";
                     echo "</tr>";
                 }
             } else {
-                echo '<td colspan="3">No hay doctores registrados.</td>';
+                echo '<td colspan="5">No hay doctores registrados.</td>';
             }
             ?>
         </tbody>
     </table>
 
     <form method="POST" action="./editarDoctor">
-        <label class="txtR" for="id_doctor">Ingrese el id del medico a editar:</label>
+        <label class="txtR" for="id_doctor">Ingrese el id del medico a editar   :</label>
         <input class="inputB" type="text" name="id_doctor" id="id_doctor" required>
 
         <label class="txtR" for="nombre_especialidad">Ingrese los años de experiencia actualizado:</label>
-        <input class="inputB" type="text" name="año_experiencia" id="año_experiencia" required>
+        <input class="inputB" type="text" name="anio_esperiencia" id="anio_esperiencia" required>
 
         <label class="txtR" for="turno">Ingrese el nuevo turno del médico:</label>
         <input class="inputB" type="text" name="turno" id="turno" required>

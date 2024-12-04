@@ -16,53 +16,95 @@ class Citas {
     }
 
     // Registrar una nueva cita
-    public function registrar_cita() {
-        try {
-            $query = "INSERT INTO " . $this->table . " (cedulaPaciente, fechaHora, especialidad, doctorID, estado) 
-                      VALUES (:cedulaPaciente, :fechaHora, :especialidad, :doctorID, :estado)";
-            $statement = $this->conn->prepare($query);
+   public function registrar_cita() {
+    // Obtener el nombre de la especialidad usando el ID
+    $query = "SELECT nombre_especialidad FROM especialidad WHERE id_especialidad = :especialidad";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':especialidad', $this->especialidad);
+    $stmt->execute();
 
-            $statement->bindParam(':cedulaPaciente', $this->cedulaPaciente);
-            $statement->bindParam(':fechaHora', $this->fechaHora);
-            $statement->bindParam(':especialidad', $this->especialidad);
-            $statement->bindParam(':doctorID', $this->doctorID);
-            $statement->bindParam(':estado', $this->estado);
-
-            return $statement->execute();
-        } catch (PDOException $e) {
-            echo "Error al registrar la cita: " . $e->getMessage();
-            return false;
-        }
+    // Verificar si se encontró el nombre de la especialidad
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nombreEspecialidad = $row['nombre_especialidad'];  // Guardar el nombre de la especialidad
+    } else {
+        echo "Especialidad no encontrada.";
+        return false;
     }
 
-    // Consultar todas las citas
-    public function consultar_citas() {
-        try {
-            $query = "SELECT * FROM " . $this->table;
-            $statement = $this->conn->prepare($query);
-            $statement->execute();
+    // Ahora que tenemos el nombre de la especialidad, realizamos la inserción
+    $query = "INSERT INTO " . $this->table . " (cedulaPaciente, especialidad, doctorID) 
+              VALUES (:cedulaPaciente, :especialidad, :doctorID)";
+    
+    $statement = $this->conn->prepare($query);
 
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Error al consultar citas: " . $e->getMessage();
-            return false;
+    // Limpiar los datos antes de insertarlos
+    $this->limpiar();
+
+    // Asignar los valores de los parámetros, usando el nombre de la especialidad
+    $statement->bindParam(':cedulaPaciente', $this->cedulaPaciente);
+    $statement->bindParam(':especialidad', $nombreEspecialidad);  // Aquí usamos el nombre
+    $statement->bindParam(':doctorID', $this->doctorID);
+
+    try {
+        // Ejecutar la consulta
+        if ($statement->execute()) {
+            return true;
         }
+        return false;
+    } catch (PDOException $e) {
+        // Si hay un error, lo mostramos
+        echo "Error al registrar la cita: " . $e->getMessage();
+        return false;
     }
+}
 
-    // Consultar una cita por ID
-    public function consultar_cita_por_id($citaID) {
-        try {
-            $query = "SELECT * FROM " . $this->table . " WHERE citaID = :citaID";
-            $statement = $this->conn->prepare($query);
-            $statement->bindParam(':citaID', $citaID);
-            $statement->execute();
 
-            return $statement->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Error al consultar la cita: " . $e->getMessage();
-            return false;
+
+
+   public function consultarCitas($cedulaPaciente) {
+    try {  // Verifica si se ejecuta
+        // Preparar la consulta SQL
+        $query = "SELECT citaID, especialidad, fechaHora, estado 
+                  FROM Citas 
+                  WHERE cedulaPaciente = :cedulaPaciente AND estado = 'programada'";
+
+        // Preparar la declaración
+        $statement = $this->conn->prepare($query);
+
+        // Vincular el parámetro de la cédula
+        $statement->bindParam(':cedulaPaciente', $cedulaPaciente, PDO::PARAM_STR);
+
+        // Ejecutar la consulta
+        $executeResult = $statement->execute();
+
+        // Verificar si la ejecución de la consulta fue exitosa
+        if (!$executeResult) {
+            throw new Exception("Error al ejecutar la consulta SQL.");
         }
+
+        // Obtener todos los resultados
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // Depuración: Verificar el resultado
+        // Aquí es donde verás el resultado en la consola o página web
+
+        // Retornar los resultados
+        return $result;
+
+    } catch (PDOException $e) {
+        // Manejo de errores si la consulta falla
+        echo "Error al consultar las citas: " . $e->getMessage();
+        return [];
+    } catch (Exception $e) {
+        // Manejo de otros errores
+        echo "Error: " . $e->getMessage();
+        return [];
     }
+}
+
+
+
 
     // Editar una cita existente
     public function editar_cita($citaID) {
@@ -97,5 +139,32 @@ class Citas {
             return false;
         }
     }
+
+    public function obtenerCitasPorEstadoYPaciente($cedulaPaciente, $estado) {
+    $query = "SELECT citaID, especialidad, fechaHora, estado 
+              FROM citas 
+              WHERE cedulaPaciente = :cedulaPaciente AND estado = :estado";
+
+    $statement = $this->conn->prepare($query);
+    $statement->bindParam(':cedulaPaciente', $cedulaPaciente, PDO::PARAM_STR);
+    $statement->bindParam(':estado', $estado, PDO::PARAM_STR);
+    $statement->execute();
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+    private function limpiar() {
+        // Sanitizar atributos
+        $this->citaID = htmlspecialchars(strip_tags($this->citaID));
+        $this->cedulaPaciente = htmlspecialchars(strip_tags($this->cedulaPaciente));
+        $this->fechaHora = htmlspecialchars(strip_tags($this->fechaHora));
+        $this->especialidad = htmlspecialchars(strip_tags($this->especialidad)); 
+        $this->doctorID = htmlspecialchars(strip_tags($this->doctorID));
+        $this->estado = htmlspecialchars(strip_tags($this->estado));
+    }
+
+
 }
 ?>

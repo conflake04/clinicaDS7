@@ -38,7 +38,7 @@
     </table>
 
     <!-- Formulario para eliminar un rol -->
-    <form method="POST" action="">
+    <form method="POST" action="./eliminarRol">
         <label class="txtR" for="nombre_rol">Escribe el nombre del rol a eliminar:</label>
         <input class="inputB" type="text" name="nombre_rol" id="nombre_rol" required>
         <button type="submit">Eliminar Rol</button>

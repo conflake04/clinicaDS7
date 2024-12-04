@@ -4,15 +4,13 @@
 .container {
   background-color: #fff;
   max-width: 750px;
-  width: 90%; 
+  width: 90%;
   margin: 50px auto 0;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-  
 }
-
 
 .txtG {
   font-size: 32px;
@@ -25,15 +23,15 @@
 }
 
 .crearMedico {
-  width: 100%; 
-  max-width: 500px; 
+  width: 100%;
+  max-width: 500px;
   margin: 20px auto;
   padding: 30px;
   background-color: #4a628a;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   color: #f4f4f9;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   position: relative;
   top: -10px;
 }
@@ -49,38 +47,45 @@
   display: block;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #f4f4f9; 
+  color: #f4f4f9;
   font-size: 16px;
 }
 
-/* Estilos para los campos de entrada de texto */
+/* Estilos uniformes para todos los campos de entrada */
 .form-group input[type="text"],
-.form-group input[type="number"] {
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
   font-family: "Khand", sans-serif;
-  width: 100%; 
-  padding: 5px;
+  width: 100%;
+  padding: 10px; /* Ajuste de espacio interno */
   margin: 0 auto;
-  border: 3px solid #4f75ff; 
+  border: 3px solid #4f75ff;
   border-radius: 6px;
   box-sizing: border-box;
   font-size: 15px;
-  background-color: #fff; 
-  color: #000; 
+  background-color: #fff;
+  color: #000;
   transition: border-color 0.3s ease;
 }
 
-/* Estilos para la lista desplegable */
+/* Hover y focus para inputs */
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Estilo adicional para la lista desplegable */
 .form-group select {
   background-color: #7ab2d3;
   color: #fff;
-  font-family: "Khand", sans-serif;
-  width: 100%; 
-  padding: 5px;
-  margin: 0 auto;
-  border-radius: 6px;
-  box-sizing: border-box;
-  font-size: 15px;
-  transition: border-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .form-group select:hover {
@@ -89,7 +94,7 @@
 
 /* Estilos para el botón */
 form button {
-  width: 100%; 
+  width: 100%;
   padding: 12px 0;
   background-color: #4f75ff;
   color: white;
@@ -105,95 +110,45 @@ form button:hover {
   background-color: #325ae9;
 }
 
-/* Estilos para el enfoque de los campos */
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="password"]:focus {
-  border-color: #007bff; 
-  outline: none;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-}
-
 /* Centrar el contenido */
 form {
   text-align: center;
 }
 
-/* Estilos para el enlace de cerrar sesión */
-.container p a {
-  color: #f4f4f9;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.container p a:hover {
-  text-decoration: underline;
-}
-
-.mensaje-exito {
+/* Mensajes de éxito o error */
+.mensaje-exito,
+.error {
   display: none;
   padding: 15px;
-  color: #5c73f2;
+  font-size: 20px;
+  border-radius: 8px;
   margin: 15px 0;
   text-align: center;
   font-weight: bold;
-  font-size: 17px;
+}
+
+.mensaje-exito {
+  background-color: #7ab2d3;
+  color: #fff;
+}
+
+.error {
+  background-color: #d9534f;
+  color: #fff;
 }
 
 /* Estilos responsivos */
 @media (max-width: 600px) {
   .txtG {
-    font-size: 24px; 
+    font-size: 24px;
     margin: 15px;
   }
 
-  form.crearUsu {
-    padding: 20px; /
-  }
-
-  .form-group label {
-    font-size: 14px; 
+  .container {
+    padding: 10px;
   }
 
   form button {
-    font-size: 15px; 
+    font-size: 15px;
   }
-}
-
-@media (max-width: 600px) {
-  .container {
-    width: 100%;
-    padding: 10px; 
-  }
-
-  form.crearUsu {
-    padding: 20px; 
-    margin: 20px auto; 
-  }
-}
-
-.mensaje-exito {
-  background-color: #7ab2d3;
-  width: 50%;
-  color: #fff;
-  font-size: 20px;
-  border-radius: 8px;
-  margin: 0 auto;
-  padding: 10px;
- 
-  font-weight: 600;
-  font-style: normal;
-}
-
-.error {
-  background-color: #7ab2d3;
-  width: 50%;
-  color: #fff;
-  font-size: 20px;
-  border-radius: 8px;
-  margin: 0 auto;
-  padding: 10px;
-
-  font-weight: 600;
-  font-style: normal;
 }

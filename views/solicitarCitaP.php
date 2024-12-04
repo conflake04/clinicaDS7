@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="./css/crearUsuario.css">
 
-<a class="container-imaA" href="vistaPaciente">
+<a class="container-imaA" href="pacienteDashBoard">
     <img class="imaA" src="css/imagenes/atras.png" alt="Atras">
 </a>
 
@@ -14,17 +14,17 @@
 <!-- LA PARTE DE ESCOGER LA ESPECIALIDAD Y EL DOCTOR SON LISTAS ENLASADAS OSEA QUE DEPENDIENDO DE LA ESPECIALIDAD ELEGIDA DEBEN DE SALIR LOS DOCTORES DE ESA ESPECIALIDAD -->
 
 <div class="container">
-    <spam class="txtG">Solicitud de cita</spam>
-    <form id="form-registro" class="crearUsu" action="./crearUsuario" method="POST">
+    <span class="txtG">Solicitud de cita</span>
+    <form id="form-registro" class="crearUsu" action="./solicitarCitaP" method="POST">
 
         <div class="form-group">
-            <label for="password">Cédula:</label>
-            <input type="text" id="cedula" name="cedula" required maxlength="20" pattern="^[0-9\-]+$" title="Solo se permiten números y guiones.">
+            <label for="cedulaPaciente">Cédula:</label>
+            <input type="text" id="cedulaPaciente" name="cedulaPaciente" required maxlength="20">
         </div>
 
         <div class="form-group">
-            <label for="id_especialidad">Servicio:</label>
-            <select id="id_especialidad" name="id_especialidad" required>
+            <label for="especialidad">Servicio:</label>
+            <select id="especialidad" name="especialidad" required>
                 <option class="txtP" value="">Seleccione una especialidad</option>
                 <?php
                 include '../config/database.php';
@@ -50,8 +50,8 @@
         </div>
 
         <div class="form-group">
-            <label for="id_doctor">Medico:</label>
-            <select id="id_doctor" name="id_doctor" required>
+            <label for="doctorID">Medico:</label>
+            <select id="doctorID" name="doctorID" required>
                 <?php
                 include '../config/database.php';
                 include '../models/Medicos.php';
@@ -76,14 +76,9 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="fechaCita">Fecha de la cita:</label>
-            <input type="date" id="fechaCita" name="fechaCita" required>
-        </div>
-
         
 
-        <button type="submit">Solocitar cita</button>
+        <button type="submit">Solicitar cita</button>
     </form>
 </div>
 <?php require 'templates/footer.php'; ?>

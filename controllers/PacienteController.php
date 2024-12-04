@@ -23,40 +23,76 @@ class PacienteController {
      * Método para registrar un nuevo paciente.
      */
     public function agregarPaciente() {
-        // Verificar si la solicitud es POST (formulario enviado)
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Asignar los datos del formulario al objeto Paciente
-            $this->paciente->cedula = $_POST['cedula'];
-            $this->paciente->nombre = $_POST['nombre'];
-            $this->paciente->apellido = $_POST['apellido'];
-            $this->paciente->fechaNacimiento = $_POST['fechaNacimiento'];
-            $this->paciente->telefono = $_POST['telefono'];
-            $this->paciente->correo = $_POST['email'];
-            $this->paciente->direccion = $_POST['direccion'];
+    // Verificar si la solicitud es POST (formulario enviado)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Asignar los datos del formulario al objeto paciente
+        $this->paciente->cedula = $_POST['cedula'];
+        $this->paciente->nombre = $_POST['nombre'];
+        $this->paciente->apellido = $_POST['apellido'];
+        $this->paciente->fechaNacimiento = $_POST['fechaNacimiento'];
+        $this->paciente->telefono = $_POST['telefono'];
+        $this->paciente->correo = $_POST['email'];
+        $this->paciente->direccion = $_POST['direccion'];
 
-            // Registrar al paciente y redirigir si tiene éxito
-            if ($this->paciente->registrarPaciente()) {
-                header('Location: ./agregarPaciente?success=1');
-            } else{
-                header('Location: ./agregarPaciente');
+        // Asignar los datos del formulario al objeto usuario
+        $usuario = new User($this->db);
+        $usuario->cedula = $_POST['cedula'];
+        $usuario->nombre = $_POST['nombre'];
+        $usuario->apellido = $_POST['apellido'];
+        $usuario->email = $_POST['email'];
+        $usuario->telefono = $_POST['telefono'];
+        $usuario->direccion = $_POST['direccion'];
+        $usuario->password = $_POST['password']; // Encriptar la contraseña
+        $usuario->idRol = $_POST['idRol'];  // Asumimos que el formulario incluye un campo para el rol
+
+        // Iniciar la transacción
+        $this->db->beginTransaction();
+
+        try {
+            // Registrar al paciente
+            if (!$this->paciente->registrarPaciente()) {
+                throw new Exception('Error al registrar paciente');
             }
-        } else {
-            // Cargar la vista del formulario de registro si la solicitud no es POST
-            require_once 'views/agregarPaciente.php';
+
+            // Registrar al usuario
+            if (!$usuario->registarUsuarioAdministrador()) {
+                throw new Exception('Error al registrar usuario');
+            }
+
+            // Confirmar la transacción si ambas inserciones son exitosas
+            $this->db->commit();
+
+            // Redirigir al éxito
+            header('Location: ./creacionUsuario?success=1');
+        } catch (Exception $e) {
+            // Si hay algún error, revertir la transacción
+            $this->db->rollBack();
+            $_SESSION['error_message'] = $e->getMessage();
+            header('Location: ./creacionUsuario?error=1');
         }
+    } else {
+        // Cargar la vista del formulario de registro si la solicitud no es POST
+        require_once 'views/crearUsuario.php';
     }
+    }
+
 
     /**
      * Método para consultar todos los pacientes.
      */
     public function consultarPacientes() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $pacientes = $this->paciente->consultarPacientes(); // Obtener la lista de pacientes
-            require_once 'views/consultarPacientes.php';
+        // Obtener la lista de pacientes
+            $pacientes = $this->paciente->consultarPacientes(); 
+
+            // Pasar los pacientes a la vista
+            require_once 'views/verPacientes.php';
         } else {
-            require_once 'views/GestionPacientes.php'; // Cargar la vista principal si no hay acción específica
+        // Si no es GET, redirigir a la vista principal
+        require_once 'views/GestionUsuario.php'; 
         }
     }
+
 
     /**
      * Método para consultar un paciente por cédula.
