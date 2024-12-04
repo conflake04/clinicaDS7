@@ -62,7 +62,23 @@ class UserController {
             // Intentar iniciar sesión y redirigir al panel de administración si tiene éxito
             if ($this->user->login()) {
                 $_SESSION['user_id'] = $this->user->cedula; // Guardar la cédula del usuario en la sesión
-                header('Location: ./admin');
+                $_SESSION['nombre'] = $this->user->nombre;
+
+                switch ($this->user->idRol) {
+
+                    case 1:
+                        header("Location: ./admin");
+                        break;
+                    case 2:
+                        header("Location: ./medico");
+                        break;
+                    case 3:
+                        echo "ES UN PACIENTE";
+                        break;
+                    default:
+                        echo "ROL NO DEFINIDO";
+                }
+
             } else {
                 echo "Credenciales incorrectas.";
             }
